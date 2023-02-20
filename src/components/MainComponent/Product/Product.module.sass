@@ -1,0 +1,81 @@
+.productComponent
+  display: flex
+  flex-direction: column
+  gap: 16px
+  width: 274px
+  height: 371px
+  position: relative
+  margin-bottom: 24px
+
+
+.brand
+  display: flex
+  position: absolute
+  padding: 6px 10px
+  left: 24px
+  top: 24px
+  background: white
+  box-shadow: 0 4px 24px rgba(51, 51, 51, 0.12)
+  border-radius: 10px
+
+.brandName
+  font-family: 'Inter', serif
+  font-style: normal
+  font-weight: 400
+  font-size: 14px
+  line-height: 18px
+  color: rgba(0, 11, 38, 0.72)
+
+
+
+.descComponent
+  display: flex
+  flex-direction: column
+  gap: 18px
+
+.nameAndType
+  display: flex
+  flex-direction: column
+  gap: 5px
+
+@mixin inter
+  font-family: 'Inter', serif
+  font-style: normal
+  font-weight: 500
+  font-size: 16px
+  line-height: 20px
+  color: rgba(0, 11, 38, 0.88)
+
+.name
+  @include inter
+
+.type
+  @include inter
+  color: rgba(0, 11, 38, 0.56)
+
+.price
+  display: flex
+  flex-direction: row
+  align-items: center
+  gap: 8px
+
+.priceNumber
+  @include inter
+  color: black
+  font-weight: 600
+  font-size: 14px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

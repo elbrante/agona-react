@@ -1,0 +1,56 @@
+
+@mixin inter
+  font-family: 'Inter', serif
+  font-style: normal
+  font-weight: 400
+  font-size: 14px
+  line-height: 18px
+  letter-spacing: -0.15px
+  color: rgba(0, 11, 38, 0.64)
+
+@mixin interForHeaderRightNav
+  font-family: 'Inter', serif
+  font-style: normal
+  font-weight: 400
+  font-size: 14px
+  line-height: 20px
+  color: rgba(0, 11, 38, 0.8)
+
+
+.header
+  display: flex
+  justify-content: space-between
+  height: 80px
+  box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.12)
+  &Left
+    display: flex
+    gap: 48px
+    margin-left: 100px
+    &Nav
+      display: flex
+      gap: 24px
+      @include inter
+  &EcoRus
+    width: 94px
+    height: 18px
+
+  &Right
+    display: flex
+    gap: 48px
+    align-items: center
+    &Nav
+      display: flex
+      gap: 24px
+      @include interForHeaderRightNav
+    &Link, &LinkBold
+      display: flex
+      align-items: center
+      gap: 8px
+    &LinkBold
+      font-weight: 600
+      color: black
+
+
+
+.headerLeft, .headerRight
+  margin: 31px 100px 31px 100px
