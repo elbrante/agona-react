@@ -5,7 +5,6 @@
   line-height: 20px
   color: rgba(0, 11, 38, 0.72)
 
-
 .label
   display: flex
   cursor: pointer
@@ -13,10 +12,7 @@
   gap: 9px
   @include inter
 
-.label:checked span
-  font-weight: 500 - НЕ РАБОТАЕТ
-
-.checkbox:checked + span
+.checkbox:checked ~ span
   font-weight: 500
 
 .checkbox
@@ -35,7 +31,6 @@
   content: ""
   position: absolute
   background-color: #07C88E
-  //background-image: url(../src/asserts/Checkbox-Base.svg) - НЕ РАБОТАЕТ
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
@@ -48,7 +43,12 @@
 .checkbox:checked + .checkmark::before
   opacity: 1
 
-
+.checkboxImg
+  position: relative
+  z-index: 1
+  width: 12px
+  bottom: 3px
+  left: 2px
 
 
 .typeFilter
@@ -73,7 +73,7 @@
   margin-left: 24px
 
 
-.genderCheck > form
+.genderCheck > form, .typeProduct > form, .brand > form
   display: flex
   flex-direction: column
   align-items: flex-start
@@ -84,12 +84,6 @@
   flex-direction: column
   gap: 12px
 
-.typeProduct > form
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-  gap: 12px
-
 
 .brand
   display: flex
@@ -97,8 +91,4 @@
   gap: 12px
   margin-bottom: 18px
 
-.brand > form
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-  gap: 12px
+

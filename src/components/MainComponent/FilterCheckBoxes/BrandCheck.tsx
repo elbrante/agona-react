@@ -1,5 +1,6 @@
 import React from 'react';
 import cl from "../FilterCheckBoxes/FilterCheckBoxesStyles.module.sass";
+import {CheckBox} from "./CheckBox";
 
 export const BrandCheck = () => {
     return (
@@ -7,33 +8,27 @@ export const BrandCheck = () => {
             <span className={cl.typeFilter}>Брэнд</span>
             <form>
                 <label className={cl.label}>
-                    <input type={"checkbox"} className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>Выбрать все</span>
                 </label>
                 <label className={cl.label}>
-                    <input type={"checkbox"} className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>H&M</span>
                 </label>
                 <label className={cl.label}>
-                    <input type={"checkbox"} className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>P&B</span>
                 </label>
                 <label className={cl.label}>
-                    <input type={"checkbox"} className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>Adidas</span>
                 </label>
                 <label className={cl.label}>
-                    <input type={"checkbox"} className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>Nike</span>
                 </label>
                 <label className={cl.label}>
-                    <input type={"checkbox"} className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>Reebok</span>
                 </label>
             </form>

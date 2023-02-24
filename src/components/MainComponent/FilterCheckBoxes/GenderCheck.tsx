@@ -1,5 +1,6 @@
 import React from 'react';
 import cl from "../FilterCheckBoxes/FilterCheckBoxesStyles.module.sass";
+import {CheckBox} from "./CheckBox";
 
 export const GenderCheck = () => {
     return (
@@ -7,13 +8,11 @@ export const GenderCheck = () => {
             <span className={cl.typeFilter}>Пол</span>
             <form>
                 <label className={cl.label}>
-                    <input type="checkbox" className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>Мужской</span>
                 </label>
                 <label className={cl.label}>
-                    <input type={"checkbox"} className={cl.checkbox}/>
-                    <span className={cl.checkmark}></span>
+                    <CheckBox/>
                     <span>Женский</span>
                 </label>
             </form>
