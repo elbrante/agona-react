@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import cl from "./Main.module.sass"
 import {Button} from "./ButtonFilter/Button";
 import {ArrayProducts} from "./ArrayProducts/ArrayProducts";
@@ -13,6 +13,7 @@ import NikeAirForce1Low from '../../asserts/imgProduct/NikeAirForce1Low.png'
 import {GenderCheck} from "./FilterCheckBoxes/GenderCheck";
 import {TypeProductCheck} from "./FilterCheckBoxes/TypeProductCheck";
 import {BrandCheck} from "./FilterCheckBoxes/BrandCheck";
+import {Auth} from "../ModalComponents/Auth";
 
 
 
@@ -25,7 +26,10 @@ const arrayComponentsProducts = [
 ]
 
 
+
 export const Main = () => {
+    const [visibleModalAuth, setVisibleModalAuth] = useState(false)
+
     return (
         <main className={cl.mainMarket}>
             <div className={cl.divUnderHeader}>
@@ -46,7 +50,8 @@ export const Main = () => {
                 </div>
                 <ArrayProducts arrayProducts={arrayComponentsProducts}/>
             </div>
-
+            <Auth visible={visibleModalAuth} onClose={() => setVisibleModalAuth(false)}/>
+            <button onClick={() => setVisibleModalAuth(true)}>Show modal</button>
 
         </main>
     );
