@@ -13,7 +13,7 @@ import NikeAirForce1Low from '../../asserts/imgProduct/NikeAirForce1Low.png'
 import {GenderCheck} from "./FilterCheckBoxes/GenderCheck";
 import {TypeProductCheck} from "./FilterCheckBoxes/TypeProductCheck";
 import {BrandCheck} from "./FilterCheckBoxes/BrandCheck";
-import {Auth} from "../ModalComponents/Auth";
+import {Auth} from "../AuthModalComponents/Auth";
 
 
 
@@ -28,7 +28,17 @@ const arrayComponentsProducts = [
 
 
 export const Main = () => {
-    const [visibleModalAuth, setVisibleModalAuth] = useState(false)
+
+    const [modalAuth, setModalAuth] = useState(false)
+
+    function openModal() {
+        setModalAuth(true)
+    }
+
+    function closeModal() {
+        setModalAuth(false)
+    }
+
 
     return (
         <main className={cl.mainMarket}>
@@ -50,8 +60,9 @@ export const Main = () => {
                 </div>
                 <ArrayProducts arrayProducts={arrayComponentsProducts}/>
             </div>
-            <Auth visible={visibleModalAuth} onClose={() => setVisibleModalAuth(false)}/>
-            <button onClick={() => setVisibleModalAuth(true)}>Show modal</button>
+
+            <Auth modalAuth={modalAuth} closeModal={closeModal}/>
+            <button style={{width: "100px"}} onClick={openModal}>Открыть модалку</button>
 
         </main>
     );
