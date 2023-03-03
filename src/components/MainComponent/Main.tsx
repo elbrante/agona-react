@@ -13,7 +13,7 @@ import NikeAirForce1Low from '../../asserts/imgProduct/NikeAirForce1Low.png'
 import {GenderCheck} from "./FilterCheckBoxes/GenderCheck";
 import {TypeProductCheck} from "./FilterCheckBoxes/TypeProductCheck";
 import {BrandCheck} from "./FilterCheckBoxes/BrandCheck";
-import {Auth} from "../AuthModalComponents/Auth";
+import {Auth} from "../AuthModal/Auth";
 
 
 
@@ -29,15 +29,15 @@ const arrayComponentsProducts = [
 
 export const Main = () => {
 
-    const [modalAuth, setModalAuth] = useState(false)
-
-    function openModal() {
-        setModalAuth(true)
-    }
-
-    function closeModal() {
-        setModalAuth(false)
-    }
+    // const [modalAuth, setModalAuth] = useState(false)
+    //
+    // function openModal() {
+    //     setModalAuth(true)
+    // }
+    //
+    // function closeModal() {
+    //     setModalAuth(false)
+    // }
 
 
     return (
@@ -60,9 +60,6 @@ export const Main = () => {
                 </div>
                 <ArrayProducts arrayProducts={arrayComponentsProducts}/>
             </div>
-
-            <Auth modalAuth={modalAuth} closeModal={closeModal}/>
-            <button style={{width: "100px"}} onClick={openModal}>Открыть модалку</button>
 
         </main>
     );
