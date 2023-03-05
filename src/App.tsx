@@ -8,7 +8,7 @@ import {Layout} from "./components/Layout";
 
 
 
-function App() {
+const App = () =>  {
   return (
     <Routes>
         <Route path={"/"} element={<Layout/>}>

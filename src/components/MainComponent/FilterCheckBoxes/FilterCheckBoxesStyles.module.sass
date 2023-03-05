@@ -1,9 +1,11 @@
+@import "src/styles/colors"
+
 @mixin inter
   font-family: 'Inter', serif
   font-style: normal
   font-size: 14px
   line-height: 20px
-  color: rgba(0, 11, 38, 0.72)
+  color: rgba($c-blue, 0.72)
 
 
 .wrapperCheck
@@ -28,14 +30,14 @@
   width: 18px
   height: 18px
   background-color: white
-  border: 1.5px solid rgba(0, 11, 38, 0.4)
+  border: 1.5px solid rgba($c-blue, 0.4)
   border-radius: 4px
   position: relative
 
 .checkmark::before
   content: ""
   position: absolute
-  background-color: #07C88E
+  background-color: $c-green-07
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
@@ -62,7 +64,7 @@
   font-weight: 500
   font-size: 16px
   line-height: 24px
-  color: rgba(0, 11, 38, 0.8)
+  color: rgba($c-blue, 0.8)
 
 
 .genderCheck

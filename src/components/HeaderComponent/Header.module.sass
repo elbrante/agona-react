@@ -1,24 +1,25 @@
+@import "../../styles/colors"
 
 @mixin inter
   font-family: 'Inter', serif
   font-size: 14px
   line-height: 18px
   letter-spacing: -0.15px
-  color: rgba(0, 11, 38, 0.64)
+  color: rgba($c-blue, 0.64)
   text-decoration: none
 
 @mixin interForHeaderRightNav
   font-family: 'Inter', serif
   font-size: 14px
   line-height: 20px
-  color: rgba(0, 11, 38, 0.8)
+  color: rgba($c-blue, 0.8)
 
 
 .header
   display: flex
   justify-content: space-between
   height: 80px
-  box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.12)
+  box-shadow: 0 0.5px 0 $c-black-12
 
 .headerEcoRus
   width: 94px
@@ -40,7 +41,7 @@
 .headerLeftActiveLink
   color: #000B26
   font-weight: 500
-  border-bottom: 3px solid #07C88E
+  border-bottom: 3px solid $c-green-07
 
 .headerRight
   display: flex
