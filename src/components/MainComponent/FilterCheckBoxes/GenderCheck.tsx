@@ -8,10 +8,10 @@ export const GenderCheck = () => {
             <span className={cl.typeFilter}>Пол</span>
             <form>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Мужской'}/>
+                    <CheckBox nameFilter='Мужской'/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Женский'}/>
+                    <CheckBox nameFilter='Женский'/>
                 </label>
             </form>
         </div>

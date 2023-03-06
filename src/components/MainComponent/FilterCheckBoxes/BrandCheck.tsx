@@ -8,22 +8,22 @@ export const BrandCheck = () => {
             <span className={cl.typeFilter}>Брэнд</span>
             <form>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={"Выбрать все"}/>
+                    <CheckBox nameFilter="Выбрать все"/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'H&M'}/>
+                    <CheckBox nameFilter='H&M'/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'P&B'}/>
+                    <CheckBox nameFilter='P&B'/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Adidas'}/>
+                    <CheckBox nameFilter='Adidas'/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Nike'}/>
+                    <CheckBox nameFilter='Nike'/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Reebok'}/>
+                    <CheckBox nameFilter='Reebok'/>
                 </label>
             </form>
         </div>

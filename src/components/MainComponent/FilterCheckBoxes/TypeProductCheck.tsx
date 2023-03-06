@@ -8,16 +8,16 @@ export const TypeProductCheck = () => {
             <span className={cl.typeFilter}>Тип товара</span>
             <form>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={"Выбрать все"}/>
+                    <CheckBox nameFilter="Выбрать все"/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Одежда'}/>
+                    <CheckBox nameFilter='Одежда'/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Обувь'}/>
+                    <CheckBox nameFilter='Обувь'/>
                 </label>
                 <label className={cl.label}>
-                    <CheckBox nameFilter={'Аксессуары'}/>
+                    <CheckBox nameFilter='Аксессуары'/>
                 </label>
             </form>
         </div>

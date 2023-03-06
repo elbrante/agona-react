@@ -1,15 +1,15 @@
 import React, {FC} from 'react';
-import {InterfaceProduct, Product} from "../Product/Product";
+import {ProductItem, Product} from "../Product/Product";
 import cl from "../ArrayProducts/ArrayProducts.module.sass"
 import currency from "../../../asserts/currency.svg";
 
 
-interface ArrayProducts {
-    arrayProducts: Array<InterfaceProduct>
+interface ProductsList {
+    productsList: Array<ProductItem>
 }
 
 
-export const ArrayProducts: FC<ArrayProducts> = ({arrayProducts}: ArrayProducts) => {
+export const ArrayProducts: FC<ProductsList> = ({productsList}: ProductsList) => {
     return (
         <div className={cl.arrayProducts}>
             <div className={cl.balance}>
@@ -30,7 +30,7 @@ export const ArrayProducts: FC<ArrayProducts> = ({arrayProducts}: ArrayProducts)
                     Получить промокод
                 </button>
             </div>
-            {arrayProducts.map((product: InterfaceProduct) => {
+            {productsList.map((product: ProductItem) => {
                 return <Product
                     img={product.img}
                     brandName={product.brandName}

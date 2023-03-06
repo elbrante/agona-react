@@ -3,7 +3,7 @@ import cl from "./Product.module.sass"
 import currency from '../../../asserts/currency.svg'
 
 
-export interface InterfaceProduct {
+export interface ProductItem {
     img: string
     brandName: string
     name: string
@@ -12,7 +12,7 @@ export interface InterfaceProduct {
 }
 
 
-export const Product: FC<InterfaceProduct> = (props: InterfaceProduct) => {
+export const Product: FC<ProductItem> = (props: ProductItem) => {
     return (
         <div className={cl.productComponent}>
             <img src={props.img} alt=""/>

@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import cl from './Button.module.sass'
 
 interface MainButton {
-    nameFilter: string
+    children: ReactNode
 }
 
-export const Button = ({nameFilter}: MainButton) => {
+export const Button = ({children}: MainButton) => {
     return (
         <button className={cl.buttonFilter}>
-            {nameFilter}
+            {children}
         </button>
     );
 };
