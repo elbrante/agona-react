@@ -16,14 +16,17 @@ import "swiper/css";
 export const Slider = () => {
 
     return (
-        <Swiper
-            slidesPerView={1}
-            modules={[Navigation]}
-            className={cl.swiper}>
-            <SwiperSlide><Banner1/></SwiperSlide>
-            <SwiperSlide><Banner2/></SwiperSlide>
-            <SwiperSlide><Banner3/></SwiperSlide>
-        </Swiper>
+        <div className={cl.mainWrapper}>
+            <Swiper
+                slidesPerView={1}
+                navigation
+                modules={[Navigation]}
+                className={cl.swiper}>
+                <SwiperSlide><Banner1/></SwiperSlide>
+                <SwiperSlide><Banner2/></SwiperSlide>
+                <SwiperSlide><Banner3/></SwiperSlide>
+            </Swiper>
+        </div>
 
     );
 };

@@ -8,6 +8,36 @@
   align-items: center
   gap: 48px
 
+
+
+  \:global .swiper
+    position: static
+  \:global .swiper-button-prev
+    width: 45px
+    height: 45px
+    box-shadow: 0 4px 24px rgba(0, 11, 38, 0.12)
+    border-radius: 50px
+    background: white url("VectorSliderLeft.svg") no-repeat center
+
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: -1.5%
+  \:global .swiper-button-next
+    width: 45px
+    height: 45px
+    box-shadow: 0 4px 24px rgba(0, 11, 38, 0.12)
+    border-radius: 50px
+    background: white url("VectorSliderRight.svg") no-repeat center
+
+    position: absolute
+    z-index: 1
+    top: 50%
+    right: -1.5%
+
+
+
+
 .items
   display: flex
   gap: 24px
