@@ -1,0 +1,36 @@
+@import "src/styles/colors"
+@import "src/components/MainPage/Banners/fontsMixin"
+
+.banner
+  width: 1200px
+  height: 320px
+  background-color: $c-yellow-8F
+  margin-top: 40px
+  border-radius: 16px
+
+  display: flex
+  align-items: center
+  justify-content: center
+
+.leftPart
+  width: 499px
+  display: flex
+  flex-direction: column
+  gap: 40px
+
+
+.text
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.title
+  @include title
+
+.subTitle
+  @include subTitle
+  width: 551px
+
+.img
+  width: 538px
+  height: 320px

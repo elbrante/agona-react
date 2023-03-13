@@ -1,12 +1,10 @@
 import React from 'react';
+import {Main} from "./MainPage/Main";
 
 export const MainPage = () => {
     return (
         <div>
-            <h1 style={{
-                display: "flex",
-                justifyContent: "center"}}>
-                Главная</h1>
+            <Main/>
         </div>
     );
 };

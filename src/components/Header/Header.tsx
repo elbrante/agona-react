@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import cl from "../../components/HeaderComponent/Header.module.sass";
+import cl from ".//Header.module.sass";
 import EcoRUS from "../../asserts/EcoRUS.png";
 import location from "../../asserts/location.svg";
 import currency from "../../asserts/currency.svg";

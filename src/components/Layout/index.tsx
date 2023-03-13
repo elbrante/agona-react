@@ -1,7 +1,7 @@
 import React from 'react';
-import {Header} from "../HeaderComponent/Header";
+import {Header} from "../Header/Header";
 import {Outlet} from "react-router-dom";
-import {Footer} from "../FooterComponent/Footer";
+import {Footer} from "../Footer/Footer";
 
 export const Layout = () => {
     return (
