@@ -2,6 +2,7 @@ import React from 'react';
 import cl from "../Item/Item.module.sass";
 import button from "../../../asserts/button.svg";
 import cn from 'classnames/bind'
+import {NavLink} from "react-router-dom";
 
 const cx = cn.bind(cl)
 
@@ -9,10 +10,15 @@ interface Props {
     title: string,
     subTitle: string,
     img: string
-    type: 'leftImg' | 'rightImg'
+    typeImg: 'leftImg' | 'rightImg'
+    linkTo: string
 }
 
-export const Item = ({title, subTitle, img, type}: Props) => {
+export const Item = ({title, subTitle, img, typeImg, linkTo}: Props) => {
+
+
+
+
     return (
         <div className={cl.item1}>
             <div className={cl.leftPartItem}>
@@ -24,16 +30,19 @@ export const Item = ({title, subTitle, img, type}: Props) => {
                         {subTitle}
                     </div>
                 </div>
-                <button className={cl.itemButton}>
-                    <img src={button} alt=""/>
-                </button>
+                <NavLink to={linkTo}>
+                    <button className={cl.itemButton}>
+                        <img src={button} alt=""/>
+                    </button>
+                </NavLink>
+
             </div>
             <img
                 src={img}
                 alt=""
                 className={cx({
-                    leftImg: type === 'leftImg',
-                    rightImg: type === 'rightImg',
+                    leftImg: typeImg === 'leftImg',
+                    rightImg: typeImg === 'rightImg',
                 })}
             />
         </div>
