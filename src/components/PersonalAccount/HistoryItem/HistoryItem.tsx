@@ -1,32 +1,48 @@
 import React from 'react';
-import cl from './History.module.sass'
+import cl from './HistoryItem.module.sass'
 import circle from '../../../asserts/circleHistrory.svg'
+import currency from '../../../asserts/currency.svg'
 
-export const History = () => {
+
+interface Props {
+    address: string;
+    material1: string;
+    material2: string;
+    material3: string;
+    data: string;
+    points: number
+}
+
+
+
+export const HistoryItem = ({address, material1, material2, material3, data, points}: Props) => {
     return (
         <div className={cl.componentHistory}>
             <div className={cl.centerComponent}>
                 <div className={cl.infoHistory}>
                     <div className={cl.item}>
                         <span className={cl.nameItem}>Адрес</span>
-                        <span className={cl.itemProps}>Казань, Кремлёвская, 88</span>
+                        <span className={cl.itemProps}>{address}</span>
                     </div>
                     <div className={cl.item}>
                         <span className={cl.nameItem}>Материал</span>
                         <div className={cl.materialItems}>
-                            <span className={cl.itemProps}>Пластик: 1 кг</span>
+                            <span className={cl.itemProps}>{material1}</span>
                             <img src={circle}/>
-                            <span className={cl.itemProps}>Стекло: 2 кг</span>
+                            <span className={cl.itemProps}>{material2}</span>
                             <img src={circle}/>
-                            <span className={cl.itemProps}>Бумага: 25 кг</span>
+                            <span className={cl.itemProps}>{material3}</span>
                         </div>
                     </div>
                     <div className={cl.item}>
                         <span className={cl.nameItem}>Дата</span>
-                        <span className={cl.itemProps}>25.09.2021</span>
+                        <span className={cl.itemProps}>{data}</span>
                     </div>
                 </div>
-                <span className={cl.points}>1000</span>
+                <div className={cl.points}>
+                    <img src={currency} className={cl.currency} alt=""/>
+                    <span className={cl.points}>{points}</span>
+                </div>
             </div>
         </div>
     );

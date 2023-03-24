@@ -1,10 +1,10 @@
 import React from 'react';
-import {Main} from "./PersonalAccount/Main";
+import {PersonalAccountLayout} from "./PersonalAccount/PersonalAccountLayout";
 
 export const PersonalAccount = () => {
     return (
         <div>
-            <Main/>
+            <PersonalAccountLayout/>
         </div>
     );
 };

@@ -34,7 +34,6 @@ export const Main = () => {
                     <Button>По популярности</Button>
                     <Button>По цене</Button>
                     <Button>По новизне</Button>
-
                 </nav>
             </div>
 

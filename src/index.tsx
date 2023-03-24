@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './someFiles/index.css';
+import './index.sass';
 import App from './App';
-import reportWebVitals from './someFiles/reportWebVitals';
+import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 
 const root = ReactDOM.createRoot(
