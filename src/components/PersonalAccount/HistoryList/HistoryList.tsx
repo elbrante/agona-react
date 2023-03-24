@@ -1,5 +1,5 @@
 import React from 'react';
-import {HistoryItem} from "./HistoryItem/HistoryItem";
+import {HistoryItem} from "../HistoryItem/HistoryItem";
 import cl from './HistoryList.module.sass'
 
 interface Props {
