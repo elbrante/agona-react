@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import cl from './PersonalAccountLayout.module.sass'
 import {CardClient} from "./CardClient/CardClient";
-import {HistoryItem} from "./HistoryItem/HistoryItem";
 import {HistoryList} from "./HistoryList/HistoryList";
-import {PromoList} from "./PromoList";
+import {PromoList} from "./PromoList/PromoList";
+import {LinkActive} from "./LinkActive/LinkActive";
 
 
 export const PersonalAccountLayout = () => {
@@ -29,8 +29,8 @@ export const PersonalAccountLayout = () => {
                     <CardClient/>
                     <div className={cl.navWrapper}>
                         <nav className={cl.navLink}>
-                            <a onClick={setStatePromo}>Промокоды</a>
-                            <a onClick={setStateHistory}>История</a>
+                            <LinkActive onClick={setStatePromo} state={visiblePromo}>Промокоды</LinkActive>
+                            <LinkActive onClick={setStateHistory} state={visibleHistory}>История</LinkActive>
                         </nav>
                         <HistoryList state={visibleHistory}/>
                         <PromoList state={visiblePromo}/>
