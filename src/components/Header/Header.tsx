@@ -4,7 +4,7 @@ import EcoRUS from "../../asserts/EcoRUS.png";
 import location from "../../asserts/location.svg";
 import currency from "../../asserts/currency.svg";
 import avatar from "../../asserts/avatar.svg";
-import {Auth} from "../AuthModal/Auth";
+import {LogIn} from "../AuthModal/LogIn/LogIn";
 import {NavLink} from "react-router-dom";
 import cn from "classnames";
 
@@ -59,7 +59,7 @@ export const Header = () => {
                         Алексей
                     </a>
                 </nav>
-                <Auth modalAuth={modalAuth} closeModal={() => setModalAuth(false)}/>
+                <LogIn modalAuth={modalAuth} closeModal={() => setModalAuth(false)}/>
             </nav>
         </header>
     );
