@@ -6,7 +6,10 @@ import {ButtonAuth} from "../ButtonAuth/ButtonAuth";
 import {LinkAuth} from "../LinkAuth/LinkAuth";
 import {Form, Formik} from "formik";
 import {useState} from "react";
-import LoginSms from "../LoginWithSms/LoginSms";
+import GetCode from "../GetCode/GetCode";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../../store";
+import {turnOffLoginSms, turnOnLoginSms} from "../../../store/LoginSms";
 
 
 interface Props {
@@ -16,9 +19,16 @@ interface Props {
 
 export const LogIn = ({modalAuth, closeModal}: Props) => {
 
-    const [loginSms, setLoginSms] = useState(false)
+    const stateLoginSms = useSelector((state: RootState) => state.showModalLoginSms.isOpenModal)
+    const dispatch = useDispatch()
+
+    function openModalLoginSms() {
+        closeModal()
+        dispatch(turnOnLoginSms())
+    }
 
     return (
+        <>
         <Modal
             isOpen={modalAuth}
             className={cl.wrapperAuth}
@@ -44,7 +54,7 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
                         <div className={cl.login}>
                             <ButtonAuth theme={"GREEN"}>Войти</ButtonAuth>
                             <div className={cl.loginWithSmsOrRegistration}>
-                                <LinkAuth onClick={() => setLoginSms(true)}>{'Войти с помощью смс'}</LinkAuth>
+                                <LinkAuth onClick={() => openModalLoginSms()}>{'Войти с помощью смс'}</LinkAuth>
                                 <LinkAuth>{'Регистрация'}</LinkAuth>
                             </div>
                         </div>
@@ -52,8 +62,10 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
                     </div>
                 </Form>
             </Formik>
-            <LoginSms modalAuth={loginSms} closeModal={() => setLoginSms(false)}/>
         </Modal>
+
+        <GetCode modalAuth={stateLoginSms} closeModal={() => dispatch(turnOffLoginSms())}/>
+        </>
     );
 };
 

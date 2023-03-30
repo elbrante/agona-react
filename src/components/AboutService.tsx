@@ -1,5 +1,5 @@
 import React from 'react';
-import {LoginSmsCode} from "./AuthModal/LoginSmsCode/LoginSmsCode";
+import {EnterCode} from "./AuthModal/EnterCode/EnterCode";
 
 export const AboutService = () => {
     return (
@@ -9,7 +9,7 @@ export const AboutService = () => {
                 justifyContent: "center"}}>
                 О сервисе
             </h1>
-            <LoginSmsCode/>
+
         </div>
     );
 };

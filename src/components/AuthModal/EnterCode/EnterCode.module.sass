@@ -1,0 +1,67 @@
+@import "src/styles/colors"
+@import "../LogIn/Login.module"
+
+.overlay
+  @include overlay
+
+.wrapperAuth
+  width: 480px
+  height: 504px
+  @include wrapperAuth
+
+
+.auth
+  width: 384px
+  height: 408px
+
+.authHeader
+  @include authHeader
+
+.wrapperInfo
+  display: flex
+  flex-direction: column
+  gap: 32px
+
+.item1
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.itemPhone
+  display: flex
+  flex-direction: column
+
+  font-family: 'Inter', serif
+  font-style: normal
+  font-weight: 500
+  font-size: 14px
+  line-height: 20px
+  color: rgba($c-blue, 0.64)
+
+.phone
+  color: $c-green-07
+
+.item2
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.item2 > span
+  font-family: 'Inter', serif
+  font-size: 16px
+  line-height: 20px
+  color: $c-green-07
+
+.authHeader > img
+  cursor: pointer
+
+
+
+
+
+
+
+
+
+
+

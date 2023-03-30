@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Form, Formik} from "formik";
 import Modal from 'react-modal'
-import cl from './LoginSms.module.sass'
+import cl from './GetCode.module.sass'
 import X from "../../../asserts/closeX.svg";
 import {Input} from "../InputFields/Input";
 import {LinkAuth} from "../LinkAuth/LinkAuth";
 import {ButtonAuth} from "../ButtonAuth/ButtonAuth";
+import {EnterCode} from "../EnterCode/EnterCode";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../../store";
+import {turnOffEnterCode, turnOnEnterCode} from "../../../store/EnterCode";
 
 interface Props {
     modalAuth: boolean
@@ -13,8 +17,19 @@ interface Props {
 }
 
 
-const LoginSms = ({modalAuth, closeModal}: Props) => {
+const GetCode = ({modalAuth, closeModal}: Props) => {
+
+    const stateEnter = useSelector((state: RootState) => state.showEnterCode.isOpenModal)
+    const dispatch = useDispatch()
+
+    function openEnterCode() {
+        closeModal()
+        dispatch(turnOnEnterCode())
+    }
+
+
     return (
+        <>
         <Modal isOpen={modalAuth}
                className={cl.wrapperAuth}
                overlayClassName={cl.overlay}
@@ -33,7 +48,7 @@ const LoginSms = ({modalAuth, closeModal}: Props) => {
                     <div className={cl.authMain}>
                         <Input placeholder={'Телефон'}/>
                         <div className={cl.twoLinks}>
-                            <ButtonAuth theme={'GREEN'}>Получить код</ButtonAuth>
+                            <ButtonAuth theme={'GREEN'} onClick={() => openEnterCode()}>Получить код</ButtonAuth>
                             <LinkAuth>{'Я уже зарегистировался(-ась)'}</LinkAuth>
                         </div>
                         <ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
@@ -41,7 +56,9 @@ const LoginSms = ({modalAuth, closeModal}: Props) => {
                 </Form>
             </Formik>
         </Modal>
+        <EnterCode modalAuth={stateEnter} closeModal={() => dispatch(turnOffEnterCode())}/>
+        </>
     );
 };
 
-export default LoginSms;
+export default GetCode;

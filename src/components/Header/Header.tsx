@@ -7,10 +7,18 @@ import avatar from "../../asserts/avatar.svg";
 import {LogIn} from "../AuthModal/LogIn/LogIn";
 import {NavLink} from "react-router-dom";
 import cn from "classnames";
+import {useDispatch, useSelector} from 'react-redux'
+import {RootState} from "../../store";
+import {turnOffLogin, turnOnLogin} from "../../store/Login";
+
+
 
 export const Header = () => {
 
-    const [modalAuth, setModalAuth] = useState(false)
+
+
+    const stateLogin = useSelector((state: RootState) => state.showModalLogin.isOpenModal)
+    const dispatch = useDispatch()
 
     return (
         <header className={cl.header}>
@@ -49,7 +57,7 @@ export const Header = () => {
                         Казань
                     </a>
                 </div>
-                <nav className={cl.headerRightNav} onClick={() => setModalAuth(true)}>
+                <nav className={cl.headerRightNav} onClick={() => dispatch(turnOnLogin())}>
                     <a className={cl.headerRightLinkBold}>
                         <img src={currency} alt=""/>
                         1000
@@ -59,7 +67,7 @@ export const Header = () => {
                         Алексей
                     </a>
                 </nav>
-                <LogIn modalAuth={modalAuth} closeModal={() => setModalAuth(false)}/>
+                <LogIn modalAuth={stateLogin} closeModal={() => dispatch(turnOffLogin())}/>
             </nav>
         </header>
     );
