@@ -8,8 +8,9 @@ import {LogIn} from "../AuthModal/LogIn/LogIn";
 import {NavLink} from "react-router-dom";
 import cn from "classnames";
 import {useDispatch, useSelector} from 'react-redux'
-import {RootState} from "../../store";
+import {RootState} from "../../store/store";
 import {turnOffLogin, turnOnLogin} from "../../store/Login";
+import {Icon} from "../ui/Icon/Icon";
 
 
 
@@ -53,7 +54,7 @@ export const Header = () => {
             <nav className={cl.headerRight}>
                 <div className={cl.headerRightNav}>
                     <a className={cl.headerRightLink}>
-                        <img src={location} alt=""/>
+                        <Icon icon={'pin'}/>
                         Казань
                     </a>
                 </div>

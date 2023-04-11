@@ -2,6 +2,7 @@ import React from 'react';
 import cl from './HistoryItem.module.sass'
 import circle from '../../../asserts/circleHistrory.svg'
 import currency from '../../../asserts/currency.svg'
+import {Icon} from "../../ui/Icon/Icon";
 
 
 interface Props {
@@ -28,9 +29,9 @@ export const HistoryItem = ({address, material1, material2, material3, data, poi
                         <span className={cl.nameItem}>Материал</span>
                         <div className={cl.materialItems}>
                             <span className={cl.itemProps}>{material1}</span>
-                            <img src={circle}/>
+                            <Icon icon={'circle'} width={20} height={20}/>
                             <span className={cl.itemProps}>{material2}</span>
-                            <img src={circle}/>
+                            <Icon icon={'circle'} width={20} height={20}/>
                             <span className={cl.itemProps}>{material3}</span>
                         </div>
                     </div>

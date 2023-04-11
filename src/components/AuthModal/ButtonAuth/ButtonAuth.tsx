@@ -6,15 +6,18 @@ const cx = cn.bind(cl)
 
 
 type ButtonProps = {
-    theme?: "GREEN" | "GRAY";
-    children: ReactNode;
-    onClick?: () => void;
+    theme?: "GREEN" | "GRAY"
+    children: ReactNode
+    onClick?: () => void
+    type?: 'submit' | 'reset' | 'button'
+
+    disabled?: boolean
 }
 
 
-export const ButtonAuth = ({theme, children, onClick}: ButtonProps) => {
+export const ButtonAuth = ({theme, children, onClick, type, disabled}: ButtonProps) => {
     return (
-        <button onClick={onClick} className={cx(cl.button, {
+        <button disabled={disabled} type={type} onClick={onClick} className={cx(cl.button, {
             buttonGreen: theme === 'GREEN',
             buttonGray: theme === 'GRAY'
         })}

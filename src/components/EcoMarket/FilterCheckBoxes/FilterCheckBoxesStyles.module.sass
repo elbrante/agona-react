@@ -34,6 +34,13 @@
   border-radius: 4px
   position: relative
 
+  svg
+    position: relative
+    z-index: 1
+    width: 12px
+    bottom: 3px
+    color: white
+
 .checkmark::before
   content: ""
   position: absolute
@@ -49,13 +56,6 @@
 
 .checkbox:checked + .checkmark::before
   opacity: 1
-
-.checkboxImg
-  position: relative
-  z-index: 1
-  width: 12px
-  bottom: 3px
-  left: 2px
 
 
 .typeFilter

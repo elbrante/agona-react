@@ -8,7 +8,7 @@ import {LinkAuth} from "../LinkAuth/LinkAuth";
 import {ButtonAuth} from "../ButtonAuth/ButtonAuth";
 import {EnterCode} from "../EnterCode/EnterCode";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../../store";
+import {RootState} from "../../../store/store";
 import {turnOffEnterCode, turnOnEnterCode} from "../../../store/EnterCode";
 
 interface Props {

@@ -1,14 +1,22 @@
 import {configureStore} from "@reduxjs/toolkit"
 import {showModalLogin} from "./Login";
-import {showModalLoginSms} from "./LoginSms";
+import {showGetCode} from "./GetCode";
 import {showEnterCode} from "./EnterCode";
+import {AuthApi} from "../services/auth";
+import {showRegistration} from "./Registration";
 
 export const storeAgona = configureStore({
+    devTools: true,
     reducer: {
         [showModalLogin.name]: showModalLogin.reducer,
-        [showModalLoginSms.name]: showModalLoginSms.reducer,
+        [showGetCode.name]: showGetCode.reducer,
         [showEnterCode.name]: showEnterCode.reducer,
-    }
+        [showRegistration.name]: showRegistration.reducer,
+        [AuthApi.reducerPath]: AuthApi.reducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(AuthApi.middleware),
+
 })
 
 export type RootState = ReturnType<typeof storeAgona.getState>

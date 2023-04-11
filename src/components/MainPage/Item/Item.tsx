@@ -3,6 +3,7 @@ import cl from "../Item/Item.module.sass";
 import button from "../../../asserts/button.svg";
 import cn from 'classnames/bind'
 import {NavLink} from "react-router-dom";
+import {Icon} from "../../ui/Icon/Icon";
 
 const cx = cn.bind(cl)
 
@@ -32,7 +33,7 @@ export const Item = ({title, subTitle, img, typeImg, linkTo}: Props) => {
                 </div>
                 <NavLink to={linkTo}>
                     <button className={cl.itemButton}>
-                        <img src={button} alt=""/>
+                        <Icon icon={'arrow'}/>
                     </button>
                 </NavLink>
 

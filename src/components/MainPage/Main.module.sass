@@ -1,5 +1,5 @@
 @import "src/styles/colors"
-//@import "src/styles/tipography" ///поместил сюда на время
+
 
 
 @mixin globalSwiper
@@ -26,7 +26,7 @@
     position: static
   \:global .swiper-button-prev
     @include globalSwiper
-    background: white url("VectorSliderLeft.svg") no-repeat center
+    background: white url("VectorSliderLeft.svg") no-repeat center //не уверен, что можно как-то использовать sprite для этого
     left: -1.5%
 
   \:global .swiper-button-next

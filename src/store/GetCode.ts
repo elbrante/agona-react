@@ -1,15 +1,15 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-export type LoginSms = {
+export type GetCode = {
     isOpenModal: boolean
 }
 
-const initialState: LoginSms = {
+const initialState: GetCode = {
     isOpenModal: false
 }
 
-export const showModalLoginSms = createSlice({
-    name: 'showModalLoginSms',
+export const showGetCode = createSlice({
+    name: 'showGetCode',
     initialState,
     reducers: {
         turnOnLoginSms: (state) => {
@@ -21,4 +21,4 @@ export const showModalLoginSms = createSlice({
     }
 })
 
-export const {turnOnLoginSms, turnOffLoginSms} = showModalLoginSms.actions
+export const {turnOnLoginSms, turnOffLoginSms} = showGetCode.actions
