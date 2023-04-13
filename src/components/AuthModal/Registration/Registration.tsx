@@ -8,6 +8,8 @@ import {Input} from "../InputFields/Input";
 import {ButtonAuth} from "../ButtonAuth/ButtonAuth";
 import {useRegistrationMutation} from "../../../services/auth";
 import {RegisterBody, RegisterResponse} from "../../../models/profile";
+import {useDispatch} from "react-redux";
+import {turnOnLogin} from "../../../store/Login";
 
 interface Props {
     modalAuth: boolean
@@ -17,6 +19,7 @@ interface Props {
 
 export const Registration = ({modalAuth, closeModal}: Props) => {
     const [register, result] = useRegistrationMutation()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         console.log(result)
@@ -46,6 +49,7 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
                         register(values)
                         helper.resetForm()
                         closeModal()
+                        dispatch(turnOnLogin())
                     }}>
                     {({
                           values,
@@ -53,7 +57,7 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
                           handleBlur,
                           handleSubmit,
                       }) => (
-                        <Form onSubmit={(handleSubmit)} className={cl.auth}>
+                        <Form onSubmit={handleSubmit} className={cl.auth}>
                             <div className={cl.authHeader}>
                                 <span>Регистрация</span>
                                 <img src={X} alt="Закрыть модальное окно" onClick={closeModal}/>

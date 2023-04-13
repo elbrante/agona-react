@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {RegisterBody, RegisterResponse} from "../models/profile";
+import {AuthenticationRequest, AuthenticationResponse} from "../models/generated";
 
 
 export const AuthApi = createApi({
@@ -13,8 +14,15 @@ export const AuthApi = createApi({
                 body,
                 method: 'POST'
             })
-        })
+        }),
+        authorization: builder.mutation<AuthenticationResponse, AuthenticationRequest>(({
+            query: (body) => ({
+                url: 'login',
+                body,
+                method: 'POST'
+            })
+        }))
     })
 })
 
-export const { useRegistrationMutation } = AuthApi
+export const { useRegistrationMutation, useAuthorizationMutation } = AuthApi

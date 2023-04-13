@@ -12,6 +12,9 @@ import {turnOffLoginSms, turnOnLoginSms} from "../../../store/GetCode";
 import {Icon} from "../../ui/Icon/Icon";
 import {turnOffRegistration, turnOnRegistration} from "../../../store/Registration";
 import {Registration} from "../Registration/Registration";
+import {useAuthorizationMutation} from "../../../services/auth";
+import {useEffect} from "react";
+import {AuthenticationRequest} from "../../../models/generated";
 
 
 interface Props {
@@ -20,6 +23,11 @@ interface Props {
 }
 
 export const LogIn = ({modalAuth, closeModal}: Props) => {
+
+    const [login, data] = useAuthorizationMutation()
+    useEffect(() => {
+        console.log(data)
+    }, [data])
 
     const stateLoginSms = useSelector((state: RootState) => state.showGetCode.isOpenModal)
     const dispatch = useDispatch()
@@ -37,6 +45,12 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
         dispatch(turnOnRegistration())
     }
 
+
+    const initialValues: AuthenticationRequest = {
+        login: '',
+        password: '',
+    }
+
     return (
         <>
             <Modal
@@ -46,34 +60,57 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
                 onRequestClose={closeModal}
             >
                 <Formik
-                    initialValues={{
-                        phone: '',
-                        password: '',
-                    }}
-                    onSubmit={() => {
+                    <AuthenticationRequest>
+                    initialValues={initialValues}
+                    onSubmit={(values, helpers) => {
+                        login(values)
+                        helpers.resetForm()
                     }}>
-                    <Form className={cl.auth}>
-                        <div className={cl.authHeader}>
-                            <span>Вход</span>
-                            {/*<Icon icon={'closeX'} width={32} height={32} onClick={closeModal}/>*/}
-                            {/*SVG не видно*/}
-                            <img src={X} alt="Закрыть модальное окно" onClick={closeModal}/>
-                        </div>
-                        <div className={cl.authMain}>
-                            <div className={cl.fields}>
-                                <Input placeholder={'Телефон'}/>
-                                <Input placeholder={'Пароль'}/>
+                    {({
+                          values,
+                          handleChange,
+                          handleBlur,
+                          handleSubmit,
+                      }) => (
+                        <Form onSubmit={handleSubmit} className={cl.auth}>
+                            <div className={cl.authHeader}>
+                                <span>Вход</span>
+                                {/*<Icon icon={'closeX'} width={32} height={32} onClick={closeModal}/>*/}
+                                {/*SVG не видно*/}
+                                <img src={X} alt="Закрыть модальное окно" onClick={closeModal}/>
                             </div>
-                            <div className={cl.login}>
-                                <ButtonAuth theme={"GREEN"}>Войти</ButtonAuth>
-                                <div className={cl.loginWithSmsOrRegistration}>
-                                    <LinkAuth onClick={() => openModalLoginSms()}>{'Войти с помощью смс'}</LinkAuth>
-                                    <LinkAuth onClick={() => openModalRegistration()}>{'Регистрация'}</LinkAuth>
+                            <div className={cl.authMain}>
+                                <div className={cl.fields}>
+                                    <Input
+                                        placeholder={'Номер телефона'}
+                                        name={'login'}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.login}
+                                    />
+                                    <Input
+                                        placeholder={'Пароль'}
+                                        name={'password'}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.password}
+                                    />
                                 </div>
+                                <div className={cl.login}>
+                                    <ButtonAuth type={'submit'}
+                                                theme={"GREEN"}
+                                    >
+                                        Войти
+                                    </ButtonAuth>
+                                    <div className={cl.loginWithSmsOrRegistration}>
+                                        <LinkAuth onClick={() => openModalLoginSms()}>{'Войти с помощью смс'}</LinkAuth>
+                                        <LinkAuth onClick={() => openModalRegistration()}>{'Регистрация'}</LinkAuth>
+                                    </div>
+                                </div>
+                                <ButtonAuth theme={"GRAY"}>Вход для партнёров</ButtonAuth>
                             </div>
-                            <ButtonAuth theme={"GRAY"}>Вход для партнёров</ButtonAuth>
-                        </div>
-                    </Form>
+                        </Form>
+                    )}
                 </Formik>
             </Modal>
 

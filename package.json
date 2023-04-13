@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
-    "@types/swiper": "^6.0.0",
     "classnames": "^2.3.2",
     "formik": "^2.2.9",
+    "openapi-typescript-codegen": "^0.24.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
@@ -28,14 +28,16 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.10",
     "@types/react-modal": "^3.13.1",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "@types/swiper": "^6.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "svg": "node ./generate-svg.js"
+    "svg": "node ./generate-svg.js",
+    "schema": "openapi -i https://ecoapp.cloud.technokratos.com/v3/api-docs -o src/models/generated --exportCore false --exportServices false"
   },
   "eslintConfig": {
     "extends": [
