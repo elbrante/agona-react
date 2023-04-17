@@ -1,4 +1,3 @@
-
 export enum Role {
     ADMIN = 'ADMIN',
     USER = 'USER',
@@ -22,7 +21,7 @@ export interface RegisterResponse {
 
 export interface RegisterBody {
     email: string
-    phone: string
+    phone_number: string
     password: string
     balance: string | number
 }

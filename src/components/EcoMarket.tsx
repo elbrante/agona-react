@@ -1,12 +1,12 @@
-import React from 'react';
-import {Main} from "./EcoMarket/Main";
+import React from 'react'
+import {Main} from './EcoMarket/Main'
 
 
 export const EcoMarket = () => {
-    return (
-        <div>
-            <Main/>
-        </div>
-    );
-};
+	return (
+		<div>
+			<Main/>
+		</div>
+	)
+}
 

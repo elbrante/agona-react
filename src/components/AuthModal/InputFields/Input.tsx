@@ -1,5 +1,5 @@
-import React from 'react';
-import cl from "../InputFields/Input.module.sass";
+import React from 'react'
+import cl from '../InputFields/Input.module.sass'
 
 interface InputProps {
     placeholder: string
@@ -14,18 +14,18 @@ interface InputProps {
 
 
 export const Input = ({placeholder, name, type, onChange, onBlur, value, onClick}: InputProps) => {
-    return (
-        <input
-            name={name}
-            type={type}
-            className={cl.input}
-            placeholder={placeholder}
+	return (
+		<input
+			name={name}
+			type={type}
+			className={cl.input}
+			placeholder={placeholder}
 
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            onClick={onClick}
-        />
-    );
-};
+			onChange={onChange}
+			onBlur={onBlur}
+			value={value}
+			onClick={onClick}
+		/>
+	)
+}
 

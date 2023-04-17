@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, {ReactNode} from 'react'
 import cl from './LinkAuth.module.sass'
 
 interface LinkAuthProps {
@@ -8,9 +8,9 @@ interface LinkAuthProps {
 
 
 export const LinkAuth = ({children, onClick}: LinkAuthProps) => {
-    return (
-        <a className={cl.link} onClick={onClick} >
-            {children}
-        </a>
-    );
-};
+	return (
+		<a className={cl.link} onClick={onClick} >
+			{children}
+		</a>
+	)
+}

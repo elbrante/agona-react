@@ -1,5 +1,5 @@
-import React, {FC} from 'react';
-import cl from "./Product.module.sass"
+import React, {FC} from 'react'
+import cl from './Product.module.sass'
 import currency from '../../../asserts/currency.svg'
 
 
@@ -13,23 +13,23 @@ export interface ProductItem {
 
 
 export const Product: FC<ProductItem> = (props: ProductItem) => {
-    return (
-        <div className={cl.productComponent}>
-            <img src={props.img} alt=""/>
-            <div className={cl.brand}>
-                <span className={cl.brandName}>{props.brandName}</span>
-            </div>
-            <div className={cl.descComponent}>
-                <div className={cl.nameAndType}>
-                    <span className={cl.name}>{props.name}</span>
-                    <span className={cl.type}>{props.type}</span>
-                </div>
-                <div className={cl.price}>
-                    <img src={currency} alt=""/>
-                    <span className={cl.priceNumber}>{props.price}</span>
-                </div>
-            </div>
-        </div>
-    );
-};
+	return (
+		<div className={cl.productComponent}>
+			<img src={props.img} alt=""/>
+			<div className={cl.brand}>
+				<span className={cl.brandName}>{props.brandName}</span>
+			</div>
+			<div className={cl.descComponent}>
+				<div className={cl.nameAndType}>
+					<span className={cl.name}>{props.name}</span>
+					<span className={cl.type}>{props.type}</span>
+				</div>
+				<div className={cl.price}>
+					<img src={currency} alt=""/>
+					<span className={cl.priceNumber}>{props.price}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
 

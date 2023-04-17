@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, {ReactNode} from 'react'
 import cl from './Button.module.sass'
 
 interface MainButton {
@@ -6,10 +6,10 @@ interface MainButton {
 }
 
 export const Button = ({children}: MainButton) => {
-    return (
-        <button className={cl.buttonFilter}>
-            {children}
-        </button>
-    );
-};
+	return (
+		<button className={cl.buttonFilter}>
+			{children}
+		</button>
+	)
+}
 
