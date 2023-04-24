@@ -11,16 +11,17 @@ import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '../../store/store'
 import {turnOffLogin, turnOnLogin} from '../../store/Login'
 import {Icon} from '../ui/Icon/Icon'
-import {useGetProfileQuery} from '../../services/auth'
 
 
 export const Header = () => {
 
-
-	const data = useGetProfileQuery(null)
-
 	const stateLogin = useSelector((state: RootState) => state.showModalLogin.isOpenModal)
 	const dispatch = useDispatch()
+
+	const dataAccount = {
+		showBalance: useSelector((state: RootState) => state.showDataAccount.balance),
+		showEmail: useSelector((state: RootState) => state.showDataAccount.email)
+	}
 
 	return (
 		<header className={cl.header}>
@@ -30,25 +31,25 @@ export const Header = () => {
 					<NavLink
 						to={'/main'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-                        Главная
+						Главная
 					</NavLink>
 
 					<NavLink
 						to={'/colpoints'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-                        Пункты сбора
+						Пункты сбора
 					</NavLink>
 
 					<NavLink
 						to={'/ecomarket'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-                        ЭкоМаркет
+						ЭкоМаркет
 					</NavLink>
 
 					<NavLink
 						to={'/about'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-                        О сервисе
+						О сервисе
 					</NavLink>
 				</nav>
 			</div>
@@ -56,17 +57,17 @@ export const Header = () => {
 				<div className={cl.headerRightNav}>
 					<a className={cl.headerRightLink}>
 						<Icon icon={'pin'}/>
-                        Казань
+						Казань
 					</a>
 				</div>
 				<nav className={cl.headerRightNav} onClick={() => dispatch(turnOnLogin())}>
 					<a className={cl.headerRightLinkBold}>
 						<img src={currency} alt=""/>
-						{data?.data?.balance}
+						{dataAccount.showBalance}
 					</a>
 					<a className={cl.headerRightLink}>
 						<img src={avatar} alt=""/>
-						{data?.data?.email}
+						{dataAccount.showEmail}
 					</a>
 				</nav>
 				<LogIn modalAuth={stateLogin} closeModal={() => dispatch(turnOffLogin())}/>

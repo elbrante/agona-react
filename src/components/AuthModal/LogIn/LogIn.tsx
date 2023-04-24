@@ -12,9 +12,9 @@ import {turnOffLoginSms, turnOnLoginSms} from '../../../store/GetCode'
 import {turnOffRegistration, turnOnRegistration} from '../../../store/Registration'
 import {Registration} from '../Registration/Registration'
 import {useAuthorizationMutation} from '../../../services/auth'
-import {useEffect} from 'react'
 import {AuthenticationRequest} from '../../../models/generated'
-import {turnOffLogin} from '../../../store/Login'
+import {setBalance, setEmail} from '../../../store/DataAccount'
+import {useEffect} from 'react'
 
 
 interface Props {
@@ -23,15 +23,12 @@ interface Props {
 }
 
 export const LogIn = ({modalAuth, closeModal}: Props) => {
-
 	const [login, data] = useAuthorizationMutation()
-
-
 	const stateLoginSms = useSelector((state: RootState) => state.showGetCode.isOpenModal)
-	const dispatch = useDispatch()
-
 	const stateRegistration = useSelector((state: RootState) => state.showRegistration.isOpenModal)
-
+	const balance = useSelector((state: RootState) => state.showDataAccount.balance)
+	const email = useSelector((state: RootState) => state.showDataAccount.email)
+	const dispatch = useDispatch()
 
 	function openModalLoginSms() {
 		closeModal()
@@ -41,6 +38,40 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 	function openModalRegistration() {
 		closeModal()
 		dispatch(turnOnRegistration())
+	}
+
+
+	const baseUrl = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/'
+	const profileUrl = 'profile'
+
+
+	useEffect(function cond() {
+		console.log(data.isSuccess)
+		if (data.isSuccess) {
+			localStorage.setItem('token', data?.data?.token as string)
+			fetch(baseUrl + profileUrl, {
+				headers: {
+					'Authorization': `Bearer ${localStorage.getItem('token')}`
+				}
+			})
+				.then(promiseResult => promiseResult.json())
+				.then(body => setData(body.balance, body.email))
+		}
+	}, [data.isSuccess])
+
+	fetch(baseUrl + profileUrl, {
+		headers: {
+			'Authorization': `Bearer ${localStorage.getItem('token')}`
+		}
+	})
+		.then(promiseResult => promiseResult.json())
+		.then(body => setData(body.balance, body.email))
+
+	function setData(balanceFetch: number | undefined, emailFetch: string | undefined) {
+		dispatch(setBalance(balanceFetch))
+		dispatch(setEmail(emailFetch))
+		console.log('работает')
+
 	}
 
 
@@ -65,14 +96,8 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 							login(values)
 							console.log(data)
 							helpers.resetForm()
-
-							// const token = data?.data?.token
-							// localStorage.setItem('token', token as string)
+							closeModal()
 						}
-						// if (data.isSuccess) {
-						// 	const token = data?.data?.token
-						// 	localStorage.setItem('token', token as string)
-						// }
 					}}>
 					{({
 						values,
@@ -104,18 +129,12 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 										onBlur={handleBlur}
 										value={values.password}
 									/>
-									{/*{data.isError ?*/}
-									{/*    <span className={cl.errorMessage}>Неверное имя пользователя или пароль</span>*/}
-									{/*    :*/}
-									{/*    localStorage.setItem('token', data?.data?.token as string)*/}
-									{/*}*/}
-
 									{data.isError &&
                                         <span className={cl.errorMessage}>Неверное имя пользователя или пароль</span>}
-
 								</div>
 								<div className={cl.login}>
-									<ButtonAuth type={'submit'}
+									<ButtonAuth
+										type={'submit'}
 										theme={'GREEN'}
 									>
                                         Войти
@@ -131,10 +150,6 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 					)}
 				</Formik>
 			</Modal>
-			{data.isSuccess && localStorage.setItem('token', data?.data?.token as string)}
-			{/*{data.isSuccess && closeModal()}*/}
-			{/*Работает, но появляется белый экран*/}
-
 
 			<GetCode modalAuth={stateLoginSms} closeModal={() => dispatch(turnOffLoginSms())}/>
 			<Registration modalAuth={stateRegistration} closeModal={() => dispatch(turnOffRegistration())}/>

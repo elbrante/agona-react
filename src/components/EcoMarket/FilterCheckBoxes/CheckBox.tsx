@@ -1,12 +1,10 @@
 import React, {FC} from 'react'
 import cl from './FilterCheckBoxesStyles.module.sass'
-import checkbox from '../../../asserts/check.svg'
 import {Icon} from '../../ui/Icon/Icon'
 
 interface CheckBox {
     nameFilter: string
 }
-
 
 
 export const CheckBox = ({nameFilter}: CheckBox) => {

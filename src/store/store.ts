@@ -4,6 +4,7 @@ import {showGetCode} from './GetCode'
 import {showEnterCode} from './EnterCode'
 import {AuthApi} from '../services/auth'
 import {showRegistration} from './Registration'
+import {showDataAccount} from './DataAccount'
 
 export const storeAgona = configureStore({
 	devTools: true,
@@ -12,6 +13,7 @@ export const storeAgona = configureStore({
 		[showGetCode.name]: showGetCode.reducer,
 		[showEnterCode.name]: showEnterCode.reducer,
 		[showRegistration.name]: showRegistration.reducer,
+		[showDataAccount.name]: showDataAccount.reducer,
 		[AuthApi.reducerPath]: AuthApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
