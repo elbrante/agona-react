@@ -59,19 +59,24 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 		}
 	}, [data.isSuccess])
 
-	fetch(baseUrl + profileUrl, {
-		headers: {
-			'Authorization': `Bearer ${localStorage.getItem('token')}`
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			fetch(baseUrl + profileUrl, {
+				headers: {
+					'Authorization': `Bearer ${localStorage.getItem('token')}`
+				}
+			})
+				.then(promiseResult => promiseResult.json())
+				.then(body => setData(body.balance, body.email))
+
 		}
-	})
-		.then(promiseResult => promiseResult.json())
-		.then(body => setData(body.balance, body.email))
+	}, [])
+
 
 	function setData(balanceFetch: number | undefined, emailFetch: string | undefined) {
 		dispatch(setBalance(balanceFetch))
 		dispatch(setEmail(emailFetch))
 		console.log('работает')
-
 	}
 
 
