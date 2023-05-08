@@ -1,6 +1,6 @@
 import React from 'react'
 import cl from './CardClient.module.sass'
-import avatarClient from '../../../asserts/avatarClient.svg'
+import avatarClient from 'src/asserts/avatarClient.svg'
 
 export const CardClient = () => {
 	return (

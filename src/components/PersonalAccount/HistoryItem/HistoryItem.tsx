@@ -1,7 +1,7 @@
 import React from 'react'
 import cl from './HistoryItem.module.sass'
-import circle from '../../../asserts/circleHistrory.svg'
-import currency from '../../../asserts/currency.svg'
+import circle from 'src/asserts/circleHistrory.svg'
+import currency from 'src/asserts/currency.svg'
 import {Icon} from '../../ui/Icon/Icon'
 
 
@@ -13,7 +13,6 @@ interface Props {
     data: string;
     points: number
 }
-
 
 
 export const HistoryItem = ({address, material1, material2, material3, data, points}: Props) => {

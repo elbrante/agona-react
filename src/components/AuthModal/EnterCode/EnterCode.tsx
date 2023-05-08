@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from 'react-modal'
 import {Form, Formik} from 'formik'
 import cl from './EnterCode.module.sass'
-import X from '../../../asserts/closeX.svg'
+import X from 'src/asserts/closeX.svg'
 import {Input} from '../InputFields/Input'
 import {ButtonAuth} from '../ButtonAuth/ButtonAuth'
 

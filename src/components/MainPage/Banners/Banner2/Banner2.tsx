@@ -1,7 +1,7 @@
 import React from 'react'
 import cl from '../Banner2/Banner2.module.sass'
 import {ButtonBanner} from '../ButtonBanner/ButtonBanner'
-import recycling2 from '../../../../asserts/recycling-concept2.png'
+import recycling2 from 'src/asserts/recycling-concept2.png'
 
 export const Banner2 = () => {
 	return (
@@ -12,7 +12,9 @@ export const Banner2 = () => {
                         А вы знали...
 					</div>
 					<div className={cl.subTitle}>
-                        что среднее время разложения пластмассовых изделий колеблется от 400 до 700 лет, а полиэтиленовых пакетов — от 100 до 200 лет?                     </div>
+                        что среднее время разложения пластмассовых изделий колеблется от 400 до 700 лет, а
+                        полиэтиленовых пакетов — от 100 до 200 лет?
+					</div>
 				</div>
 				<ButtonBanner>
                     Узнать больше

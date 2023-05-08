@@ -1,15 +1,14 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Modal from 'react-modal'
 import cl from './Registration.module.sass'
 import {Form, Formik} from 'formik'
-import {Icon} from '../../ui/Icon/Icon'
-import X from '../../../asserts/closeX.svg'
+import X from 'src/asserts/closeX.svg'
 import {Input} from '../InputFields/Input'
 import {ButtonAuth} from '../ButtonAuth/ButtonAuth'
-import {useRegistrationMutation} from '../../../services/auth'
-import {RegisterBody, RegisterResponse} from '../../../models/profile'
+import {useRegistrationMutation} from 'src/services/auth'
+import {RegisterBody} from 'src/models/profile'
 import {useDispatch} from 'react-redux'
-import {turnOnLogin} from '../../../store/Login'
+import {turnOnLogin} from 'src/store/Login'
 
 interface Props {
     modalAuth: boolean

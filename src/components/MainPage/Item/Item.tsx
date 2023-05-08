@@ -1,6 +1,6 @@
 import React from 'react'
 import cl from '../Item/Item.module.sass'
-import button from '../../../asserts/button.svg'
+import button from 'src/asserts/button.svg'
 import cn from 'classnames/bind'
 import {NavLink} from 'react-router-dom'
 import {Icon} from '../../ui/Icon/Icon'
@@ -16,8 +16,6 @@ interface Props {
 }
 
 export const Item = ({title, subTitle, img, typeImg, linkTo}: Props) => {
-
-
 
 
 	return (

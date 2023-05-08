@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React from 'react'
 import cl from './FilterCheckBoxesStyles.module.sass'
 import {Icon} from '../../ui/Icon/Icon'
 

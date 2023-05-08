@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 import {ProductItem, Product} from '../Product/Product'
 import cl from '../ArrayProducts/ArrayProducts.module.sass'
-import currency from '../../../asserts/currency.svg'
+import currency from 'src/asserts/currency.svg'
 
 
 interface ProductsList {

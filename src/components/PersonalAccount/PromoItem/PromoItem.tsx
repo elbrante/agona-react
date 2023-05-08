@@ -1,5 +1,4 @@
 import React from 'react'
-import promo1000 from '../../../asserts/promo1000.svg'
 import cl from './PromoItem.module.sass'
 
 
@@ -8,8 +7,6 @@ interface Props {
     dataProp: string;
     link: string;
 }
-
-
 
 
 export const PromoItem = ({imgPromo, dataProp, link}: Props) => {

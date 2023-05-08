@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import cl from './Product.module.sass'
-import currency from '../../../asserts/currency.svg'
+import currency from 'src/asserts/currency.svg'
 
 
 export interface ProductItem {

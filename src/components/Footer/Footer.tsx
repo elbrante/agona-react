@@ -1,7 +1,6 @@
 import React from 'react'
 import cl from './Footer.module.sass'
-import mail from '../../asserts/mail.svg'
-import phone from '../../asserts/phone.svg'
+import mail from 'src/asserts/mail.svg'
 import {Icon} from '../ui/Icon/Icon'
 
 export const Footer = () => {

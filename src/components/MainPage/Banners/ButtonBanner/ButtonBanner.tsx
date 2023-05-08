@@ -1,8 +1,9 @@
 import React, {ReactNode} from 'react'
-import button from '../../../../asserts/button.svg'
+import button from 'src/asserts/button.svg'
 import cl from '../ButtonBanner/ButtonBanner.module.sass'
 
 import cn from 'classnames/bind'
+
 const cx = cn.bind(cl)
 
 

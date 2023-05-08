@@ -2,14 +2,14 @@ import React from 'react'
 import {Form, Formik} from 'formik'
 import Modal from 'react-modal'
 import cl from './GetCode.module.sass'
-import X from '../../../asserts/closeX.svg'
+import X from 'src/asserts/closeX.svg'
 import {Input} from '../InputFields/Input'
 import {LinkAuth} from '../LinkAuth/LinkAuth'
 import {ButtonAuth} from '../ButtonAuth/ButtonAuth'
 import {EnterCode} from '../EnterCode/EnterCode'
 import {useDispatch, useSelector} from 'react-redux'
-import {RootState} from '../../../store/store'
-import {turnOffEnterCode, turnOnEnterCode} from '../../../store/EnterCode'
+import {RootState} from 'src/store/store'
+import {turnOffEnterCode, turnOnEnterCode} from 'src/store/EnterCode'
 
 interface Props {
     modalAuth: boolean

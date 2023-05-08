@@ -1,6 +1,6 @@
 import React from 'react'
 import cl from '../../Banners/Banner1/Banner1.module.sass'
-import recycling from '../../../../asserts/recycling-concept.png'
+import recycling from 'src/asserts/recycling-concept.png'
 import {ButtonBanner} from '../ButtonBanner/ButtonBanner'
 
 export const Banner1 = () => {
@@ -12,7 +12,8 @@ export const Banner1 = () => {
                         Сделаем мир чище
 					</div>
 					<div className={cl.subTitle}>
-                        Сдай макулатуру или старую одежду и получи скидку на покупку товаров из переработанных материалов
+                        Сдай макулатуру или старую одежду и получи скидку на покупку товаров из переработанных
+                        материалов
 					</div>
 				</div>
 				<ButtonBanner>

@@ -1,7 +1,7 @@
 import React from 'react'
 import cl from '../Banner3/Banner3.module.sass'
 import {ButtonBanner} from '../ButtonBanner/ButtonBanner'
-import recycling3 from '../../../../asserts/recycling-concept3.png'
+import recycling3 from 'src/asserts/recycling-concept3.png'
 
 export const Banner3 = () => {
 	return (
@@ -12,7 +12,8 @@ export const Banner3 = () => {
                         Что с масками?
 					</div>
 					<div className={cl.subTitle}>
-                        Медицинские маски не обязательно должны становиться отходами. Их тоже можно сдать на переработку.
+                        Медицинские маски не обязательно должны становиться отходами. Их тоже можно сдать на
+                        переработку.
 					</div>
 					<ButtonBanner type={'BANNER3'}>
                         Пункты сбора масок

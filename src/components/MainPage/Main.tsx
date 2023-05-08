@@ -1,12 +1,9 @@
 import React from 'react'
 import cl from './Main.module.sass'
-import item1 from '../../asserts/item1.svg'
-import item2 from '../../asserts/item2.svg'
+import item1 from 'src/asserts/item1.svg'
+import item2 from 'src/asserts/item2.svg'
 import {Item} from './Item/Item'
 import {Slider} from './Slider/Slider'
-
-
-
 
 
 export const Main = () => {
