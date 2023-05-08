@@ -29,27 +29,27 @@ export const Header = () => {
 				<img className={cl.headerEcoRus} src={EcoRUS} alt=""/>
 				<nav className={cl.headerLeftNav}>
 					<NavLink
-						to={'/main'}
+						to={'/'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-						Главная
+                        Главная
 					</NavLink>
 
 					<NavLink
 						to={'/colpoints'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-						Пункты сбора
+                        Пункты сбора
 					</NavLink>
 
 					<NavLink
 						to={'/ecomarket'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-						ЭкоМаркет
+                        ЭкоМаркет
 					</NavLink>
 
 					<NavLink
 						to={'/about'}
 						className={({isActive}) => cn(cl.headerLeftLink, isActive && cl.headerLeftActiveLink)}>
-						О сервисе
+                        О сервисе
 					</NavLink>
 				</nav>
 			</div>
@@ -57,7 +57,7 @@ export const Header = () => {
 				<div className={cl.headerRightNav}>
 					<a className={cl.headerRightLink}>
 						<Icon icon={'pin'}/>
-						Казань
+                        Казань
 					</a>
 				</div>
 				<nav className={cl.headerRightNav} onClick={() => dispatch(turnOnLogin())}>

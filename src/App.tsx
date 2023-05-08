@@ -8,15 +8,14 @@ import {Layout} from './components/Layout'
 import {PersonalAccount} from './components/PersonalAccount'
 
 
-
-const App = () =>  {
+const App = () => {
 	return (
 		<Routes>
-			<Route path={'/'} element={<Layout/>}>
+			<Route element={<Layout/>}>
 				<Route path={'/ecomarket'} element={<EcoMarket/>}/>
 				<Route path={'/about'} element={<AboutService/>}/>
 				<Route path={'/colpoints'} element={<CollectionPoints/>}/>
-				<Route path={'/main'} element={<MainPage/>}/>
+				<Route path={'/'} element={<MainPage/>}/>
 				<Route path={'/account'} element={<PersonalAccount/>}/>
 			</Route>
 		</Routes>

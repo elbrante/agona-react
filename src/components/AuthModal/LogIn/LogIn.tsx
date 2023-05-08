@@ -11,7 +11,7 @@ import {RootState} from '../../../store/store'
 import {turnOffLoginSms, turnOnLoginSms} from '../../../store/GetCode'
 import {turnOffRegistration, turnOnRegistration} from '../../../store/Registration'
 import {Registration} from '../Registration/Registration'
-import {useAuthorizationMutation} from '../../../services/auth'
+import {useAuthorizationMutation, useLazyGetProfileQuery} from '../../../services/auth'
 import {AuthenticationRequest} from '../../../models/generated'
 import {setBalance, setEmail} from '../../../store/DataAccount'
 import {useEffect} from 'react'
@@ -24,10 +24,10 @@ interface Props {
 
 export const LogIn = ({modalAuth, closeModal}: Props) => {
 	const [login, data] = useAuthorizationMutation()
+	const [getProfile] = useLazyGetProfileQuery()
+
 	const stateLoginSms = useSelector((state: RootState) => state.showGetCode.isOpenModal)
 	const stateRegistration = useSelector((state: RootState) => state.showRegistration.isOpenModal)
-	const balance = useSelector((state: RootState) => state.showDataAccount.balance)
-	const email = useSelector((state: RootState) => state.showDataAccount.email)
 	const dispatch = useDispatch()
 
 	function openModalLoginSms() {
@@ -41,34 +41,21 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 	}
 
 
-	const baseUrl = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/'
-	const profileUrl = 'profile'
-
-
-	useEffect(function cond() {
-		console.log(data.isSuccess)
+	useEffect(() => {
 		if (data.isSuccess) {
 			localStorage.setItem('token', data?.data?.token as string)
-			fetch(baseUrl + profileUrl, {
-				headers: {
-					'Authorization': `Bearer ${localStorage.getItem('token')}`
-				}
-			})
-				.then(promiseResult => promiseResult.json())
-				.then(body => setData(body.balance, body.email))
+			getProfile(null)
+				.then(prom => prom.data)
+				.then(body => setData(body?.balance, body?.email))
 		}
 	}, [data.isSuccess])
 
+
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
-			fetch(baseUrl + profileUrl, {
-				headers: {
-					'Authorization': `Bearer ${localStorage.getItem('token')}`
-				}
-			})
-				.then(promiseResult => promiseResult.json())
-				.then(body => setData(body.balance, body.email))
-
+			getProfile(null)
+				.then(prom => prom.data)
+				.then(body => setData(body?.balance, body?.email))
 		}
 	}, [])
 
@@ -85,6 +72,14 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 		password: '',
 	}
 
+	function condCloseModal(prom: any) {
+		console.log(prom)
+		console.log(prom.error.status)
+		if (prom.error.status !== 500) {
+			closeModal()
+		}
+	}
+
 	return (
 		<>
 			<Modal
@@ -99,9 +94,11 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 					onSubmit={(values, helpers) => {
 						if (values.login !== '' && values.password !== '') {
 							login(values)
-							console.log(data)
+								.then(prom => condCloseModal(prom)) //не могу разобраться
 							helpers.resetForm()
-							closeModal()
+							// if (data.isSuccess) {
+							// 	closeModal()
+							// }
 						}
 					}}>
 					{({

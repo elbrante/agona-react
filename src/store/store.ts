@@ -6,6 +6,7 @@ import {AuthApi} from '../services/auth'
 import {showRegistration} from './Registration'
 import {showDataAccount} from './DataAccount'
 
+
 export const storeAgona = configureStore({
 	devTools: true,
 	reducer: {
@@ -17,8 +18,7 @@ export const storeAgona = configureStore({
 		[AuthApi.reducerPath]: AuthApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(AuthApi.middleware),
-
+		getDefaultMiddleware().concat([AuthApi.middleware]),
 })
 
 export type RootState = ReturnType<typeof storeAgona.getState>

@@ -13,7 +13,6 @@ import {TypeProductCheck} from './FilterCheckBoxes/TypeProductCheck'
 import {BrandCheck} from './FilterCheckBoxes/BrandCheck'
 
 
-
 const componentProductsList = [
 	{img: NikeAirMax2021, brandName: 'NIKE', name: 'Nike Air Max 2021', type: 'Мужская обувь', price: 1000},
 	{img: NikeAirMax90Premium, brandName: 'NIKE', name: 'Nike Air Max 90 Premium', type: 'Мужская обувь', price: 750},
@@ -23,8 +22,8 @@ const componentProductsList = [
 ] // принимаемые объекты я типизировал в Product.tsx
 
 
-
 export const Main = () => {
+
 
 	return (
 		<main className={cl.mainMarket}>
