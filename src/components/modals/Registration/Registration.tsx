@@ -2,14 +2,15 @@ import React, {useEffect} from 'react'
 import Modal from 'react-modal'
 import cl from './Registration.module.sass'
 import {Form, Formik, FormikHelpers} from 'formik'
-import {Icon} from '../../ui/Icon/Icon'
 import X from '../../../asserts/closeX.svg'
 import {Input} from '../../InputFields/Input'
 import {ButtonAuth} from '../../ButtonAuth/ButtonAuth'
 import {useRegistrationMutation} from '../../../services/auth'
 import {RegisterBody, RegisterResponse} from '../../../models/profile'
 import {useDispatch} from 'react-redux'
+import * as yup from 'yup'
 import {turnOnLogin} from '../../../store/Login'
+
 
 interface Props {
     modalAuth: boolean
@@ -36,6 +37,13 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 		dispatch(turnOnLogin())
 	}
 
+	const validationRegister = yup.object({
+		email: yup.string().email('Неправильный формат почты').required(),
+		phone_number: yup.string().required(),
+		password: yup.string().required(),
+		balance: yup.string().required()
+	})
+
 
 	return (
 		<>
@@ -47,6 +55,7 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 			>
 				<Formik
                     <RegisterBody>
+					validationSchema={validationRegister}
 					initialValues={initialValues}
 					onSubmit={(values, helper) => onSubmitFormik(values, helper)}>
 					{({
@@ -54,6 +63,7 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 						handleChange,
 						handleBlur,
 						handleSubmit,
+						errors
 					}) => (
 						<Form onSubmit={handleSubmit} className={cl.auth}>
 							<div className={cl.authHeader}>
@@ -71,6 +81,13 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 										onBlur={handleBlur}
 										value={values.email}
 									/>
+
+									{errors.email && (
+										<div className={cl.error}>
+											{errors.email}
+										</div>
+									)}
+
 									<Input
 										name={'phone_number'}
 										placeholder={'Номер телефона'}
@@ -78,6 +95,12 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 										onBlur={handleBlur}
 										value={values.phone_number}
 									/>
+
+									{errors.phone_number && (
+										<div className={cl.error}>
+											{errors.phone_number}
+										</div>
+									)}
 									<Input
 										name={'password'}
 										type={'password'}
@@ -86,6 +109,13 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 										onBlur={handleBlur}
 										value={values.password}
 									/>
+
+									{errors.password && (
+										<div className={cl.error}>
+											{errors.password}
+										</div>
+									)}
+
 									<Input
 										name={'balance'}
 										placeholder={'Баланс'}
@@ -94,15 +124,22 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 										value={values.balance}
 
 									/>
-								</div>
-								<div className={cl.login}>
-									<ButtonAuth
-										disabled={result.isLoading}
-										type={'submit'}
-										theme={'GREEN'}
-									>
-                                        Зарегистрироваться
-									</ButtonAuth>
+
+									{errors.balance && (
+										<div className={cl.error}>
+											{errors.balance}
+										</div>
+									)}
+
+									<div className={cl.login}>
+										<ButtonAuth
+											disabled={result.isLoading}
+											type={'submit'}
+											theme={'GREEN'}
+										>
+                                            Зарегистрироваться
+										</ButtonAuth>
+									</div>
 								</div>
 							</div>
 						</Form>

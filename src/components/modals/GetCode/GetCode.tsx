@@ -10,10 +10,11 @@ import {EnterCode} from '../EnterCode/EnterCode'
 import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '../../../store/store'
 import {turnOffEnterCode, turnOnEnterCode} from '../../../store/EnterCode'
+import * as yup from 'yup'
 
 interface Props {
-    modalAuth: boolean
-    closeModal: () => void
+	modalAuth: boolean
+	closeModal: () => void
 }
 
 
@@ -27,36 +28,53 @@ const GetCode = ({modalAuth, closeModal}: Props) => {
 		dispatch(turnOnEnterCode())
 	}
 
+	const validationGetCode = yup.object({
+		phone: yup.string().required(),
+	})
+
 
 	return (
 		<>
 			<Modal isOpen={modalAuth}
-				className={cl.wrapperAuth}
-				overlayClassName={cl.overlay}
-				onRequestClose={closeModal}
+				   className={cl.wrapperAuth}
+				   overlayClassName={cl.overlay}
+				   onRequestClose={closeModal}
 			>
 				<Formik
+					validationSchema={validationGetCode}
 					initialValues={{
 						phone: '',
 					}}
 					onSubmit={() => {
 					}}>
-					<Form className={cl.auth}>
-						<div className={cl.authHeader}>
-							<span>Вход или регистрация</span>
-							<button>
-								<img src={X} alt="Закрыть модальное окно" onClick={closeModal}/>
-							</button>
-						</div>
-						<div className={cl.authMain}>
-							<Input placeholder={'Телефон'}/>
-							<div className={cl.twoLinks}>
-								<ButtonAuth theme={'GREEN'} onClick={() => openEnterCode()}>Получить код</ButtonAuth>
-								<LinkAuth>Я уже зарегистировался(-ась)</LinkAuth>
+					{({
+						  errors
+					  }) => (
+						<Form className={cl.auth}>
+							<div className={cl.authHeader}>
+								<span>Вход или регистрация</span>
+								<button>
+									<img src={X} alt="Закрыть модальное окно" onClick={closeModal}/>
+								</button>
 							</div>
-							<ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
-						</div>
-					</Form>
+							<div className={cl.authMain}>
+								<Input placeholder={'Телефон'}/>
+
+								{errors.phone && (
+									<div className={cl.error}>
+										{errors.phone}
+									</div>
+								)}
+
+								<div className={cl.twoLinks}>
+									<ButtonAuth theme={'GREEN'} onClick={() => openEnterCode()}>Получить
+										код</ButtonAuth>
+									<LinkAuth>Я уже зарегистировался(-ась)</LinkAuth>
+								</div>
+								<ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
+							</div>
+						</Form>
+					)}
 				</Formik>
 			</Modal>
 			<EnterCode modalAuth={stateEnter} closeModal={() => dispatch(turnOffEnterCode())}/>

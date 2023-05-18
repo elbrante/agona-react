@@ -14,7 +14,8 @@ import {Registration} from '../Registration/Registration'
 import {useAuthorizationMutation, useLazyGetProfileQuery} from '../../../services/auth'
 import {AuthenticationRequest} from '../../../models/generated'
 import {setBalance, setEmail} from '../../../store/DataAccount'
-import {useEffect} from 'react'
+import React, {useEffect} from 'react'
+import * as yup from 'yup'
 
 
 interface Props {
@@ -89,6 +90,11 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 		}
 	}
 
+	const validationLogin = yup.object({
+		login: yup.string().required(),
+		password: yup.string().required(),
+	})
+
 	return (
 		<>
 			<Modal
@@ -99,6 +105,7 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 			>
 				<Formik
                     <AuthenticationRequest>
+					validationSchema={validationLogin}
 					initialValues={initialValues}
 					onSubmit={(values, helpers) => onSubmitFormik(values, helpers)}>
 					{({
@@ -106,6 +113,7 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 						handleChange,
 						handleBlur,
 						handleSubmit,
+						errors
 					}) => (
 						<Form onSubmit={handleSubmit} className={cl.auth}>
 							<div className={cl.authHeader}>
@@ -124,6 +132,13 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 										value={values.login}
 									/>
 
+									{errors.login && (
+										<div className={cl.error}>
+											{errors.login}
+										</div>
+									)}
+
+
 									<Input
 										placeholder={'Пароль'}
 										name={'password'}
@@ -131,6 +146,13 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 										onBlur={handleBlur}
 										value={values.password}
 									/>
+
+									{errors.password && (
+										<div className={cl.error}>
+											{errors.password}
+										</div>
+									)}
+
 									{data.isError &&
                                         <span className={cl.errorMessage}>Неверное имя пользователя или пароль</span>}
 								</div>

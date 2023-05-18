@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals'
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {storeAgona} from './store/store'
+import {yupRuLocale} from './utils/yupLocales'
 
+
+yupRuLocale()
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 )

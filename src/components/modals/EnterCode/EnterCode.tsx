@@ -5,46 +5,67 @@ import cl from './EnterCode.module.sass'
 import X from '../../../asserts/closeX.svg'
 import {Input} from '../../InputFields/Input'
 import {ButtonAuth} from '../../ButtonAuth/ButtonAuth'
+import * as yup from 'yup'
 
 interface Props {
-    modalAuth: boolean
-    closeModal: () => void
+	modalAuth: boolean
+	closeModal: () => void
 }
+
+
+const validationEnterCode = yup.object({
+	code: yup.string().required(),
+})
 
 
 export const EnterCode = ({modalAuth, closeModal}: Props) => {
 	return (
 		<>
 			<Modal isOpen={modalAuth}
-				className={cl.wrapperAuth}
-				overlayClassName={cl.overlay}
-				onRequestClose={closeModal}
+				   className={cl.wrapperAuth}
+				   overlayClassName={cl.overlay}
+				   onRequestClose={closeModal}
 			>
-				<Formik initialValues={{code: '',}} onSubmit={() => {
+				<Formik
+					initialValues={{code: '',}}
+					onSubmit={() => {
+					}}
+					validationSchema={validationEnterCode}
+				>
+					{({
+						  errors
+					  }) => (
+						<Form className={cl.auth}>
+							<div className={cl.authHeader}>
+								<span>Ввести код</span>
+								<button>
+									<img onClick={closeModal} src={X} alt=""/>
+								</button>
+							</div>
+							<div className={cl.wrapperInfo}>
+								<div className={cl.item1}>
+									<div className={cl.itemPhone}>
+										<span>Введите код отправленный вам на телефон</span>
+										<span className={cl.phone}>+7 (917) 888 88 88</span>
+									</div>
+									<Input placeholder='Код'/>
 
-				}}>
-					<Form className={cl.auth}>
-						<div className={cl.authHeader}>
-							<span>Ввести код</span>
-							<button>
-								<img onClick={closeModal} src={X} alt=""/>
-							</button>
-						</div>
-						<div className={cl.wrapperInfo}>
-							<div className={cl.item1}>
-								<div className={cl.itemPhone}>
-									<span>Введите код отправленный вам на телефон</span>
-									<span className={cl.phone}>+7 (917) 888 88 88</span>
+									{errors.code && (
+										<div className={cl.error}>
+											{errors.code}
+										</div>
+									)}
+
 								</div>
-								<Input placeholder='Код'/>
+								<div className={cl.item2}>
+									<ButtonAuth theme='GREEN'>Отправить</ButtonAuth>
+									<span>Не получил(-а) код</span>
+								</div>
+								<ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
 							</div>
-							<div className={cl.item2}>
-								<ButtonAuth theme='GREEN'>Отправить</ButtonAuth>
-								<span>Не получил(-а) код</span>
-							</div>
-							<ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
-						</div>
-					</Form>
+						</Form>
+					)}
+
 				</Formik>
 			</Modal>
 		</>
