@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-export type Login = {
+export interface Login {
     isOpenModal: boolean
 }
 

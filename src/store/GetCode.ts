@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-export type GetCode = {
+export interface GetCode {
     isOpenModal: boolean
 }
 

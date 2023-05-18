@@ -1,11 +1,11 @@
 import React from 'react'
-import {EcoMarket} from './components/EcoMarket'
+import {EcoMarket} from './pages/EcoMarket/EcoMarket'
 import {Route, Routes} from 'react-router-dom'
-import {AboutService} from './components/AboutService'
-import {CollectionPoints} from './components/CollectionPoints'
-import {MainPage} from './components/MainPage'
+import {AboutService} from './pages/AboutService'
+import {CollectionPoints} from './pages/CollectionPoints'
+import {MainPage} from './pages/MainPage/MainPage'
 import {Layout} from './components/Layout'
-import {PersonalAccount} from './components/PersonalAccount'
+import {PersonalAccount} from './pages/PersonalAccount/PersonalAccount'
 
 
 const App = () => {

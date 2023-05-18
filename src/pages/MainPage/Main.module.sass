@@ -1,0 +1,54 @@
+@import "../../styles/colors"
+
+
+@mixin globalSwiper
+  width: 45px
+  height: 45px
+  box-shadow: 0 4px 24px rgba(0, 11, 38, 0.12)
+  border-radius: 50px
+
+  position: absolute
+  z-index: 1
+  top: 50%
+  cursor: pointer
+
+
+.main
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  gap: 48px
+
+
+  \:global .swiper
+    position: static
+
+  \:global .swiper-button-prev
+    @include globalSwiper
+    background: white url("VectorSliderLeft.svg") no-repeat center
+    //не уверен, что можно как-то использовать sprite для этого
+    left: -1.5%
+
+  \:global .swiper-button-next
+    @include globalSwiper
+    background: white url("VectorSliderRight.svg") no-repeat center
+    right: -1.5%
+
+
+.items
+  display: flex
+  gap: 24px
+
+.carousel
+  width: 1200px
+
+
+
+
+
+
+
+
+
+

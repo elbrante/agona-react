@@ -1,7 +1,6 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import {RegisterBody, RegisterResponse} from '../models/profile'
 import {AuthenticationRequest, AuthenticationResponse, User} from '../models/generated'
-import {RootState} from '../store/store'
 
 
 export const AuthApi = createApi({
