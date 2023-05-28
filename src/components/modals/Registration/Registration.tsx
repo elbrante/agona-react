@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Modal from 'react-modal'
 import cl from './Registration.module.sass'
 import {Form, Formik, FormikHelpers} from 'formik'
 import X from '../../../asserts/closeX.svg'
 import {Input} from '../../InputFields/Input'
-import {ButtonAuth} from '../../ButtonAuth/ButtonAuth'
+import {ButtonAuth, Theme} from '../../ButtonAuth/ButtonAuth'
 import {useRegistrationMutation} from '../../../services/auth'
-import {RegisterBody, RegisterResponse} from '../../../models/profile'
+import {RegisterBody} from '../../../models/profile'
 import {useDispatch} from 'react-redux'
 import * as yup from 'yup'
 import {turnOnLogin} from '../../../store/Login'
@@ -135,7 +135,7 @@ export const Registration = ({modalAuth, closeModal}: Props) => {
 										<ButtonAuth
 											disabled={result.isLoading}
 											type={'submit'}
-											theme={'GREEN'}
+											theme={Theme.GREEN}
 										>
                                             Зарегистрироваться
 										</ButtonAuth>

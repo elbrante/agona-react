@@ -14,26 +14,24 @@ interface Props {
 export const PromoList = ({state}: Props) => {
 	return (
 		<div>
-			{state ?
-				<div className={cl.promoList}>
-					<PromoItem
-						imgPromo={promo1000}
-						dataProp={'25.09.2021'}
-						link={'adidas.com/clothes/WddfJfsf7dt6fsHFIuj5пdfsZFu...'}/>
+			{state &&
+                <div className={cl.promoList}>
+                	<PromoItem
+                		imgPromo={promo1000}
+                		dataProp={'25.09.2021'}
+                		link={'adidas.com/clothes/WddfJfsf7dt6fsHFIuj5пdfsZFu...'}/>
 
-					<PromoItem
-						imgPromo={promo100}
-						dataProp={'25.09.2021'}
-						link={'adidas.com/clothes/WddfJfsf7dt6fsHFIuj5пdfsZFu...'}/>
+                	<PromoItem
+                		imgPromo={promo100}
+                		dataProp={'25.09.2021'}
+                		link={'adidas.com/clothes/WddfJfsf7dt6fsHFIuj5пdfsZFu...'}/>
 
-					<PromoItem
-						imgPromo={promo400}
-						dataProp={'25.09.2021'}
-						link={'adidas.com/clothes/WddfJfsf7dt6fsHFIuj5пdfsZFu...'}/>
+                	<PromoItem
+                		imgPromo={promo400}
+                		dataProp={'25.09.2021'}
+                		link={'adidas.com/clothes/WddfJfsf7dt6fsHFIuj5пdfsZFu...'}/>
 
-				</div>
-				:
-				null
+                </div>
 			}
 
 		</div>

@@ -2,12 +2,12 @@ import React from 'react'
 import cl from './FilterCheckBoxesStyles.module.sass'
 import {Icon} from '../../../components/ui/Icon/Icon'
 
-interface CheckBox {
+interface Props {
     nameFilter: string
 }
 
 
-export const CheckBox = ({nameFilter}: CheckBox) => {
+export const CheckBox = ({nameFilter}: Props) => {
 	return (
 		<div className={cl.wrapperCheck}>
 			<input type="checkbox" className={cl.checkbox}/>

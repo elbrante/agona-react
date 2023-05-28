@@ -2,7 +2,7 @@ import cl from './/Login.module.sass'
 import X from '../../../asserts/closeX.svg'
 import Modal from 'react-modal'
 import {Input} from '../../InputFields/Input'
-import {ButtonAuth} from '../../ButtonAuth/ButtonAuth'
+import {ButtonAuth, Theme} from '../../ButtonAuth/ButtonAuth'
 import {LinkAuth} from '../../LinkAuth/LinkAuth'
 import {Form, Formik, FormikHelpers} from 'formik'
 import GetCode from '../GetCode/GetCode'
@@ -159,7 +159,7 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 								<div className={cl.login}>
 									<ButtonAuth
 										type={'submit'}
-										theme={'GREEN'}
+										theme={Theme.GREEN}
 									>
                                         Войти
 									</ButtonAuth>
@@ -168,7 +168,7 @@ export const LogIn = ({modalAuth, closeModal}: Props) => {
 										<LinkAuth onClick={() => openModalRegistration()}>{'Регистрация'}</LinkAuth>
 									</div>
 								</div>
-								<ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
+								<ButtonAuth theme={Theme.GRAY}>Вход для партнёров</ButtonAuth>
 							</div>
 						</Form>
 					)}

@@ -3,19 +3,18 @@ import cl from './HistoryItem.module.sass'
 import circle from '../../../asserts/circleHistrory.svg'
 import currency from '../../../asserts/currency.svg'
 import {Icon} from '../../../components/ui/Icon/Icon'
+import {array} from 'yup'
 
 
 interface Props {
     address: string;
-    material1: string;
-    material2: string;
-    material3: string;
+    materials: Array<string>;
     data: string;
     points: number
 }
 
 
-export const HistoryItem = ({address, material1, material2, material3, data, points}: Props) => {
+export const HistoryItem = ({address, data, points, materials}: Props) => {
 	return (
 		<div className={cl.componentHistory}>
 			<div className={cl.centerComponent}>
@@ -27,12 +26,18 @@ export const HistoryItem = ({address, material1, material2, material3, data, poi
 					<div className={cl.item}>
 						<span className={cl.nameItem}>Материал</span>
 						<div className={cl.materialItems}>
-							<span className={cl.itemProps}>{material1}</span>
-							<Icon icon={'circle'} width={20} height={20}/>
-							<span className={cl.itemProps}>{material2}</span>
-							<Icon icon={'circle'} width={20} height={20}/>
-							<span className={cl.itemProps}>{material3}</span>
+							{materials.map((material, index) => {
+								return <>
+									<span
+										key={materials.indexOf(material)}
+										className={cl.itemProps}>
+									    {material}
+								    </span>
+									{index != materials.length - 1 && <Icon icon={'circle'} width={20} height={20}/>}
+								</>
+							})}
 						</div>
+
 					</div>
 					<div className={cl.item}>
 						<span className={cl.nameItem}>Дата</span>

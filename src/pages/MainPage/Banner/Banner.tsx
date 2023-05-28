@@ -2,7 +2,7 @@ import React from 'react'
 import cl from './Banner.module.sass'
 
 
-interface Banner {
+interface Props {
     title: string
     subtitle: string
     textInButton: string
@@ -11,7 +11,7 @@ interface Banner {
 }
 
 
-export const Banner = ({title, subtitle, textInButton, img, backgroundColor}: Banner) => {
+export const Banner = ({title, subtitle, textInButton, img, backgroundColor}: Props) => {
 	return (
 		<div className={cl.banner} style={{backgroundColor: backgroundColor}}>
 			<div className={cl.leftPart}>

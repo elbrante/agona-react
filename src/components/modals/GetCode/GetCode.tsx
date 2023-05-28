@@ -5,7 +5,7 @@ import cl from './GetCode.module.sass'
 import X from '../../../asserts/closeX.svg'
 import {Input} from '../../InputFields/Input'
 import {LinkAuth} from '../../LinkAuth/LinkAuth'
-import {ButtonAuth} from '../../ButtonAuth/ButtonAuth'
+import {ButtonAuth, Theme} from '../../ButtonAuth/ButtonAuth'
 import {EnterCode} from '../EnterCode/EnterCode'
 import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '../../../store/store'
@@ -13,8 +13,8 @@ import {turnOffEnterCode, turnOnEnterCode} from '../../../store/EnterCode'
 import * as yup from 'yup'
 
 interface Props {
-	modalAuth: boolean
-	closeModal: () => void
+    modalAuth: boolean
+    closeModal: () => void
 }
 
 
@@ -36,9 +36,9 @@ const GetCode = ({modalAuth, closeModal}: Props) => {
 	return (
 		<>
 			<Modal isOpen={modalAuth}
-				   className={cl.wrapperAuth}
-				   overlayClassName={cl.overlay}
-				   onRequestClose={closeModal}
+				className={cl.wrapperAuth}
+				overlayClassName={cl.overlay}
+				onRequestClose={closeModal}
 			>
 				<Formik
 					validationSchema={validationGetCode}
@@ -48,8 +48,8 @@ const GetCode = ({modalAuth, closeModal}: Props) => {
 					onSubmit={() => {
 					}}>
 					{({
-						  errors
-					  }) => (
+						errors
+					}) => (
 						<Form className={cl.auth}>
 							<div className={cl.authHeader}>
 								<span>Вход или регистрация</span>
@@ -67,11 +67,11 @@ const GetCode = ({modalAuth, closeModal}: Props) => {
 								)}
 
 								<div className={cl.twoLinks}>
-									<ButtonAuth theme={'GREEN'} onClick={() => openEnterCode()}>Получить
-										код</ButtonAuth>
+									<ButtonAuth theme={Theme.GREEN} onClick={() => openEnterCode()}>Получить
+                                        код</ButtonAuth>
 									<LinkAuth>Я уже зарегистировался(-ась)</LinkAuth>
 								</div>
-								<ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
+								<ButtonAuth theme={Theme.GRAY}>Вход для партнёров</ButtonAuth>
 							</div>
 						</Form>
 					)}

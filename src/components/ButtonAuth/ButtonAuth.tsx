@@ -4,18 +4,22 @@ import cn from 'classnames/bind'
 
 const cx = cn.bind(cl)
 
+export enum Theme {
+    GREEN,
+    GRAY
+}
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    theme?: 'GREEN' | 'GRAY'
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    theme?: Theme
     children: ReactNode
 }
 
 
-export const ButtonAuth = ({theme, children, onClick, type, disabled}: ButtonProps) => {
+export const ButtonAuth = ({theme, children, onClick, type, disabled}: Props) => {
 	return (
 		<button disabled={disabled} type={type} onClick={onClick} className={cx(cl.button, {
-			buttonGreen: theme === 'GREEN',
-			buttonGray: theme === 'GRAY'
+			buttonGreen: theme === Theme.GREEN,
+			buttonGray: theme === Theme.GRAY
 		})}
 		>
 			{children}

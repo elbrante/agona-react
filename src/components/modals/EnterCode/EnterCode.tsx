@@ -4,12 +4,12 @@ import {Form, Formik} from 'formik'
 import cl from './EnterCode.module.sass'
 import X from '../../../asserts/closeX.svg'
 import {Input} from '../../InputFields/Input'
-import {ButtonAuth} from '../../ButtonAuth/ButtonAuth'
+import {ButtonAuth, Theme} from '../../ButtonAuth/ButtonAuth'
 import * as yup from 'yup'
 
 interface Props {
-	modalAuth: boolean
-	closeModal: () => void
+    modalAuth: boolean
+    closeModal: () => void
 }
 
 
@@ -22,9 +22,9 @@ export const EnterCode = ({modalAuth, closeModal}: Props) => {
 	return (
 		<>
 			<Modal isOpen={modalAuth}
-				   className={cl.wrapperAuth}
-				   overlayClassName={cl.overlay}
-				   onRequestClose={closeModal}
+				className={cl.wrapperAuth}
+				overlayClassName={cl.overlay}
+				onRequestClose={closeModal}
 			>
 				<Formik
 					initialValues={{code: '',}}
@@ -33,8 +33,8 @@ export const EnterCode = ({modalAuth, closeModal}: Props) => {
 					validationSchema={validationEnterCode}
 				>
 					{({
-						  errors
-					  }) => (
+						errors
+					}) => (
 						<Form className={cl.auth}>
 							<div className={cl.authHeader}>
 								<span>Ввести код</span>
@@ -58,10 +58,10 @@ export const EnterCode = ({modalAuth, closeModal}: Props) => {
 
 								</div>
 								<div className={cl.item2}>
-									<ButtonAuth theme='GREEN'>Отправить</ButtonAuth>
+									<ButtonAuth theme={Theme.GREEN}>Отправить</ButtonAuth>
 									<span>Не получил(-а) код</span>
 								</div>
-								<ButtonAuth theme={'GRAY'}>Вход для партнёров</ButtonAuth>
+								<ButtonAuth theme={Theme.GRAY}>Вход для партнёров</ButtonAuth>
 							</div>
 						</Form>
 					)}

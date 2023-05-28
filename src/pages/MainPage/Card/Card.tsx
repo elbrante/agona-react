@@ -7,11 +7,16 @@ import {Icon} from '../../../components/ui/Icon/Icon'
 
 const cx = cn.bind(cl)
 
+export enum TypeImg {
+    leftImg,
+    rightImg
+}
+
 interface Props {
-    title: string,
-    subTitle: string,
+    title: string
+    subTitle: string
     img: string
-    typeImg: 'leftImg' | 'rightImg'
+    typeImg: TypeImg
     linkTo: string
 }
 
@@ -40,8 +45,8 @@ export const Card = ({title, subTitle, img, typeImg, linkTo}: Props) => {
 				src={img}
 				alt=""
 				className={cx({
-					leftImg: typeImg === 'leftImg',
-					rightImg: typeImg === 'rightImg',
+					leftImg: typeImg === TypeImg.leftImg,
+					rightImg: typeImg === TypeImg.rightImg,
 				})}
 			/>
 		</div>

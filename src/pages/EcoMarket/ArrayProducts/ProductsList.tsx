@@ -4,12 +4,12 @@ import cl from './ArrayProducts.module.sass'
 import currency from '../../../asserts/currency.svg'
 
 
-interface ProductsList {
+interface Props {
     productsList: Array<ProductItem>
 }
 
 
-export const ArrayProducts = ({productsList}: ProductsList) => {
+export const ArrayProducts = ({productsList}: Props) => {
 	return (
 		<div className={cl.arrayProducts}>
 			<div className={cl.balance}>

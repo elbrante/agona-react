@@ -1,11 +1,11 @@
 import React, {ReactNode} from 'react'
 import cl from './Button.module.sass'
 
-interface MainButton {
+interface Props {
     children: ReactNode
 }
 
-export const Button = ({children}: MainButton) => {
+export const Button = ({children}: Props) => {
 	return (
 		<button className={cl.buttonFilter}>
 			{children}
