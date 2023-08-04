@@ -5,9 +5,9 @@ import cl from './Slider.module.sass'
 
 import 'swiper/css'
 import {Banner} from '../Banner/Banner'
-import recycling from '../../../asserts/recycling-concept.png'
-import recycling2 from '../../../asserts/recycling-concept2.png'
-import recycling3 from '../../../asserts/recycling-concept3.png'
+import recycling from '../../../assets/recycling-concept.png'
+import recycling2 from '../../../assets/recycling-concept2.png'
+import recycling3 from '../../../assets/recycling-concept3.png'
 
 
 export const Slider = () => {

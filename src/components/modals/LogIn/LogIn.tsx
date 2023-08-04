@@ -1,5 +1,5 @@
 import cl from './/Login.module.sass'
-import X from '../../../asserts/closeX.svg'
+import X from '../../../assets/closeX.svg'
 import Modal from 'react-modal'
 import {Input} from '../../InputFields/Input'
 import {ButtonAuth, Theme} from '../../ButtonAuth/ButtonAuth'

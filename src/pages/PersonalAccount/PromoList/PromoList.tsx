@@ -1,7 +1,7 @@
 import React from 'react'
-import promo1000 from '../../../asserts/promo1000.svg'
-import promo100 from '../../../asserts/promo100.svg'
-import promo400 from '../../../asserts/promo400.svg'
+import promo1000 from '../../../assets/promo1000.svg'
+import promo100 from '../../../assets/promo100.svg'
+import promo400 from '../../../assets/promo400.svg'
 import {PromoItem} from '../PromoItem/PromoItem'
 import cl from './PromoList.module.sass'
 

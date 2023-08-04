@@ -1,7 +1,7 @@
 import React from 'react'
 import {ProductItem, Product} from '../Product/Product'
 import cl from './ArrayProducts.module.sass'
-import currency from '../../../asserts/currency.svg'
+import currency from '../../../assets/currency.svg'
 
 
 interface Props {

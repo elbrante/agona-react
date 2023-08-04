@@ -1,7 +1,7 @@
 import React from 'react'
 import cl from './HistoryItem.module.sass'
-import circle from '../../../asserts/circleHistrory.svg'
-import currency from '../../../asserts/currency.svg'
+import circle from '../../../assets/circleHistrory.svg'
+import currency from '../../../assets/currency.svg'
 import {Icon} from '../../../components/ui/Icon/Icon'
 import {array} from 'yup'
 

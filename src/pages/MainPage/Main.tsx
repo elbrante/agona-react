@@ -1,7 +1,7 @@
 import React from 'react'
 import cl from './Main.module.sass'
-import item1 from '../../asserts/item1.svg'
-import item2 from '../../asserts/item2.svg'
+import item1 from '../../assets/item1.svg'
+import item2 from '../../assets/item2.svg'
 import {Card, TypeImg} from './Card/Card'
 import {Slider} from './Slider/Slider'
 
