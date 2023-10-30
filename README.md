@@ -14,5 +14,5 @@
 9. svgstore
 10. openapi-typescript-codegen
 
-Сылка на макет:
+Ссылка на макет:
 https://www.figma.com/file/HbyRYsohC7vWjilYhVqpFw/Эcarus-(Copy)
